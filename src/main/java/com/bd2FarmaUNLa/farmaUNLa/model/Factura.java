@@ -13,7 +13,7 @@ public class Factura {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private long id;
 	private int codigo;
 	private int nroTicket;
 	private String fecha;
@@ -23,8 +23,9 @@ public class Factura {
 	
 	public Factura(){} 
 	
-	public Factura(int id, int nroTicket, String fecha, Sucursal sucursal, FormaDePago formaDePago) {
+	public Factura(long id, int codigo, int nroTicket, String fecha, Sucursal sucursal, FormaDePago formaDePago) {
 		this.id = id;
+		this.codigo = codigo;
 		this.nroTicket = nroTicket;
 		this.fecha = fecha;		
 		this.sucursal = sucursal;
@@ -32,10 +33,10 @@ public class Factura {
 	}
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	

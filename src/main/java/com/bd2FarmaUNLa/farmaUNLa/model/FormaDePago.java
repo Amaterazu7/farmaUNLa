@@ -11,21 +11,21 @@ public class FormaDePago {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private long id;
 	private String descripcion;
 	
 	public FormaDePago(){} 
 	
-	public FormaDePago(int id, String descripcion) {
+	public FormaDePago(long id, String descripcion) {
 		this.id = id;
 		this.descripcion = descripcion;
 	}
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

@@ -13,7 +13,7 @@ public class DetalleFactura {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private long id;
 	private int codigoFactura;
 	private int cantidad;
 	private long precioLista;
@@ -22,7 +22,7 @@ public class DetalleFactura {
 	
 	public DetalleFactura(){} 
 	
-	public DetalleFactura(int id, int cantidad, long precioLista, long precioVenta, Producto producto) {
+	public DetalleFactura(long id, int cantidad, long precioLista, long precioVenta, Producto producto) {
 		this.id = id;
 		this.cantidad = cantidad;
 		this.precioLista = precioLista;	
@@ -31,10 +31,10 @@ public class DetalleFactura {
 	}
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	

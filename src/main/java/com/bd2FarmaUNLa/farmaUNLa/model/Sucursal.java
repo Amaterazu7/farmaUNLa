@@ -11,7 +11,7 @@ public class Sucursal {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private long id;
 	private Integer numSucursal;
 	private String calle;
 	private String numero;
@@ -20,7 +20,7 @@ public class Sucursal {
 	
 	public Sucursal(){} 
 	
-	public Sucursal(int id, Integer numSucursal, String calle, String numero, Provincia provincia, Localidad localidad) {
+	public Sucursal(long id, Integer numSucursal, String calle, String numero, Provincia provincia, Localidad localidad) {
 		this.id = id;
 		this.numSucursal = numSucursal;
 		this.calle = calle;
@@ -30,10 +30,10 @@ public class Sucursal {
 	}
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

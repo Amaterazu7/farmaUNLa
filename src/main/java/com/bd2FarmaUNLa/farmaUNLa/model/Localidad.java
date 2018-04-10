@@ -12,23 +12,23 @@ public class Localidad {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private long id;
 	private int codigoProvincia;
 	private String nombre;
 	
 	public Localidad(){} 
 	
-	public Localidad(int id, int codigoProvincia, String nombre) {
+	public Localidad(long id, int codigoProvincia, String nombre) {
 		this.id = id;
 		this.codigoProvincia = codigoProvincia;
 		this.nombre = nombre;
 	}
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	

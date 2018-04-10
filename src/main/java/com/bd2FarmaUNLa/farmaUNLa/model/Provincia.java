@@ -13,23 +13,23 @@ public class Provincia {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private long id;
 	private int codigo;
 	private String nombre;
 	private ArrayList<Localidad> localidadList;
 	
 	public Provincia(){} 
 	
-	public Provincia(int id, String nombre) {
+	public Provincia(long id, String nombre) {
 		this.id = id;
 		this.nombre = nombre;
 	}
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

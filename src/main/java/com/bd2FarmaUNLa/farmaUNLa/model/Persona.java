@@ -11,7 +11,7 @@ public class Persona {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private long id;
 	private int dni;
 	private String numAfiliado;
 	private String apellido;
@@ -24,7 +24,7 @@ public class Persona {
 	
 	public Persona(){} 
 	
-	public Persona(int id, int dni, String numAfiliado, String apellido, String nombre, String calle, String numero, Provincia provincia, Localidad localidad, ObraSocial obraSocial) {
+	public Persona(long id, int dni, String numAfiliado, String apellido, String nombre, String calle, String numero, Provincia provincia, Localidad localidad, ObraSocial obraSocial) {
 		this.id = id;
 		this.dni = dni;
 		this.numAfiliado = numAfiliado;
@@ -38,10 +38,10 @@ public class Persona {
 	}
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	
