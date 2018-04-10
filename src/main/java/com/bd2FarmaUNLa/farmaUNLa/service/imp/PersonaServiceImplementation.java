@@ -14,7 +14,7 @@ import com.bd2FarmaUNLa.farmaUNLa.service.PersonaService;
 
 @Service("personaService")
 @Transactional
-public class PersonaServiceImplements implements PersonaService {
+public class PersonaServiceImplementation implements PersonaService {
 	
 	private static final AtomicLong counter = new AtomicLong();
 	

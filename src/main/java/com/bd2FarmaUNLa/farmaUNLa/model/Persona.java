@@ -1,5 +1,6 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,16 +11,26 @@ import javax.persistence.ManyToOne;
 public class Persona {
 
 	@Id
+	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	@Column(name="dni")
 	private int dni;
+	@Column(name="numAfiliado")
 	private String numAfiliado;
+	@Column(name="apellido")
 	private String apellido;
+	@Column(name="nombre")
 	private String nombre;
+	@Column(name="calle")
 	private String calle;
+	@Column(name="numero")
 	private String numero;
+	@Column(name="provincia")
 	private Provincia provincia;
+	@Column(name="localidad")
 	private Localidad localidad;
+	@Column(name="obraSocial")
 	private ObraSocial obraSocial;
 	
 	public Persona(){} 

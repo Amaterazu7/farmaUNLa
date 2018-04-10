@@ -9,5 +9,7 @@ public interface PersonaRepository extends CrudRepository<Persona, Long> {
 	Persona findById(long id);
 	
 	@Query("SELECT p FROM Persona p")
+	Persona findAllPersonas();
+	
 	Persona findBydni(int dni);
 }
