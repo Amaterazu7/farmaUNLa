@@ -1,9 +1,12 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -11,21 +14,22 @@ public class Sucursal {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "idSucursal")
 	private long id;
 	private Integer numSucursal;
 	private String calle;
 	private String numero;
-	private Provincia provincia;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idLocalidad", referencedColumnName = "idLocalidad")
 	private Localidad localidad;
 	
 	public Sucursal(){} 
 	
-	public Sucursal(long id, Integer numSucursal, String calle, String numero, Provincia provincia, Localidad localidad) {
+	public Sucursal(long id, Integer numSucursal, String calle, String numero, Localidad localidad) {
 		this.id = id;
 		this.numSucursal = numSucursal;
 		this.calle = calle;
 		this.numero = numero;
-		this.provincia = provincia;
 		this.localidad = localidad;
 	}
 	
@@ -58,13 +62,6 @@ public class Sucursal {
 		this.numero = numero;
 	}
 	
-	public Provincia getProvincia() {
-		return provincia;
-	}
-	public void setProvincia(Provincia provincia) {
-		this.provincia = provincia;
-	}
-
 	public Localidad getLocalidad() {
 		return localidad;
 	}
@@ -96,7 +93,7 @@ public class Sucursal {
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id  + ", numSucursal=" + numSucursal  + ", calle=" + calle  + ", numero=" + numero  + ", provincia=" + provincia + ", localidad=" + localidad +"]";
+		return "Customer [id=" + id  + ", numSucursal=" + numSucursal  + ", calle=" + calle  + ", numero=" + numero  + ", localidad=" + localidad.getId() +"]";
 	}
 	
 

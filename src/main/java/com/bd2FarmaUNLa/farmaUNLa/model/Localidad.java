@@ -1,5 +1,6 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,7 @@ public class Localidad {
 	@Column(name="idLocalidad")
 	private long id;
 	private String nombre;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "idProvincia", referencedColumnName = "idProvincia")
 	private Provincia provincia;
 	
@@ -74,7 +75,7 @@ public class Localidad {
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", nombre=" + nombre +"]";
+		return "Customer [id=" + id + ", nombre=" + nombre +", provincia=" + provincia.getId() + "]";
 	}
 	
 

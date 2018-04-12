@@ -5,5 +5,5 @@ import com.bd2FarmaUNLa.farmaUNLa.model.Factura;
 
 public interface FacturaRepository extends CrudRepository<Factura, Long> {
 
-	Factura findByCodigo(int codigo);
+	Factura findById(long id);
 }

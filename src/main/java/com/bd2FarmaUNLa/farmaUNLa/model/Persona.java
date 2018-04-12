@@ -1,18 +1,15 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name="Persona")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Persona {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "idPersona")
 	private long id;
 	private int dni;
 	private String numAfiliado;
@@ -128,7 +125,7 @@ public class Persona {
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id  + ", dni=" + dni  + ", numAfiliado=" + numAfiliado  + ", apellido=" + apellido  + ", nombre=" + nombre  + ", calle=" + calle  + ", numero=" + numero  + ", provincia=" + provincia + ", localidad=" + localidad +", obraSocial=" + obraSocial  + "]";
+		return "Customer [id=" + id  + ", dni=" + dni  + ", numAfiliado=" + numAfiliado  + ", apellido=" + apellido  + ", nombre=" + nombre  + ", calle=" + calle  + ", numero=" + numero + ", localidad=" + localidad.getId() +", obraSocial=" + obraSocial.getId()  + "]";
 	}
 	
 

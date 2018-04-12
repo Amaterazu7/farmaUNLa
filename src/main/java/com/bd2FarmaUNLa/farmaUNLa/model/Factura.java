@@ -1,36 +1,47 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
 import java.sql.Date;
-import java.util.ArrayList;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Factura {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "idFactura")
 	private long id;
 	private int codigo;
-	private int nroTicket;
+	private String nroTicket;
 	private Date fecha;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idSucursal", referencedColumnName = "idSucursal")
 	private Sucursal sucursal;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idFormaDePago", referencedColumnName = "idFormaDePago")
 	private FormaDePago formaDePago;
-	private ArrayList<DetalleFactura> detalleList;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idCajero", referencedColumnName = "idEmpleado")
+	private Empleado cajero;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idVendedor", referencedColumnName = "idEmpleado")
+	private Empleado vendedor;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idPersona", referencedColumnName = "idPersona")
+	private Persona cliente;
 	
 	public Factura(){} 
 	
-	public Factura(long id, int codigo, int nroTicket, Date fecha, Sucursal sucursal, FormaDePago formaDePago) {
+	public Factura(long id, int codigo, String nroTicket, Date fecha, Sucursal sucursal, FormaDePago formaDePago, Empleado vendedor, Empleado cajero, Persona cliente) {
 		this.id = id;
 		this.codigo = codigo;
 		this.nroTicket = nroTicket;
 		this.fecha = fecha;		
 		this.sucursal = sucursal;
 		this.formaDePago = formaDePago;
+		this.vendedor = vendedor;
+		this.cajero = cajero;
+		this.cliente = cliente;
 	}
 	
 	
@@ -48,10 +59,10 @@ public class Factura {
 		this.codigo = codigo;
 	}	
 	
-	public int getNroTicket() {
+	public String getNroTicket() {
 		return nroTicket;
 	}
-	public void setNroTicket(int nroTicket) {
+	public void setNroTicket(String nroTicket) {
 		this.nroTicket = nroTicket;
 	}
 
@@ -76,7 +87,34 @@ public class Factura {
 		this.formaDePago = formaDePago;
 	}
 	
-	
+	public FormaDePago getFormaDePago() {
+		return formaDePago;
+	}
+	public void setFormaDePago(FormaDePago formaDePago) {
+		this.formaDePago = formaDePago;
+	}
+
+	public Empleado getCajero() {
+		return cajero;
+	}
+	public void setCajero(Empleado cajero) {
+		this.cajero = cajero;
+	}
+
+	public Empleado getVendedor() {
+		return vendedor;
+	}
+	public void setVendedor(Empleado vendedor) {
+		this.vendedor = vendedor;
+	}
+
+	public Persona getCliente() {
+		return cliente;
+	}
+	public void setCliente(Persona cliente) {
+		this.cliente = cliente;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -99,7 +137,7 @@ public class Factura {
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id  + ", nroTicket=" + nroTicket  + ", fecha=" + fecha  + ", sucursal=" + sucursal  + ", formaDePago=" + formaDePago + "]";
+		return "Customer [id=" + id  + ", nroTicket=" + nroTicket  + ", fecha=" + fecha  + ", sucursal=" + sucursal.getId()  + ", formaDePago=" + formaDePago.getId() + ", vendedor=" + vendedor.getIdEmpleado() + ", cajero=" + cajero.getIdEmpleado() + ", cliente=" + cliente.getId() + "]";
 	}
 	
 

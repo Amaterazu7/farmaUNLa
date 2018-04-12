@@ -1,28 +1,29 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Producto {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "idProducto")
 	private long id;
 	private int codigo;
 	private String descripcion;
 	private long precio;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idTipoProducto", referencedColumnName = "idTipoProducto")
+	private TipoProducto tipoProducto;
 	
 	public Producto(){} 
 	
-	public Producto(long id, int codigo, String descripcion, long precio) {
+	public Producto(long id, int codigo, String descripcion, long precio, TipoProducto tipoProducto) {
 		this.id = id;
 		this.codigo = codigo;
 		this.descripcion = descripcion;
 		this.precio = precio;
+		this.tipoProducto = tipoProducto;
 	}
 	
 	
@@ -33,10 +34,10 @@ public class Producto {
 		this.id = id;
 	}
 	
-	public int getDni() {
+	public int getCodigo() {
 		return codigo;
 	}
-	public void setDni(int codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
@@ -52,6 +53,13 @@ public class Producto {
 	}
 	public void setPrecio(long precio) {
 		this.precio = precio;
+	}
+
+	public TipoProducto getTipoProducto() {
+		return tipoProducto;
+	}
+	public void setTipoProducto(TipoProducto tipoProducto) {
+		this.tipoProducto = tipoProducto;
 	}
 	
 	
@@ -77,7 +85,7 @@ public class Producto {
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id  + ", codigo=" + codigo  + ", descripcion=" + descripcion  + ", precio=" + precio  + "]";
+		return "Customer [id=" + id  + ", codigo=" + codigo  + ", descripcion=" + descripcion  + ", precio=" + precio  + ", tipoProducto=" + tipoProducto.getId()  + "]";
 	}
 	
 

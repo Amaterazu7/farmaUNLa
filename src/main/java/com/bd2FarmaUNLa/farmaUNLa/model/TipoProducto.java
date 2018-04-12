@@ -8,19 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class FormaDePago {
+public class TipoProducto {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "idFormaDePago")
+	@Column(name="idTipoProducto")
 	private long id;
-	private String descripcion;
+	private String nombre;
 	
-	public FormaDePago(){} 
+	public TipoProducto(){} 
 	
-	public FormaDePago(long id, String descripcion) {
+	public TipoProducto(long id, String nombre) {
 		this.id = id;
-		this.descripcion = descripcion;
+		this.nombre = nombre;
 	}
 	
 	
@@ -31,11 +31,11 @@ public class FormaDePago {
 		this.id = id;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getNombre() {
+		return nombre;
 	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 
@@ -52,16 +52,16 @@ public class FormaDePago {
 			return true;
 		if (obj == null)
 			return false;
-		if (!(obj instanceof FormaDePago))
+		if (!(obj instanceof TipoProducto))
 			return false;
-		FormaDePago other = (FormaDePago) obj;
+		TipoProducto other = (TipoProducto) obj;
 		if (id != other.id)
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", descripcion=" + descripcion +"]";
+		return "Customer [id=" + id + ", nombre=" + nombre +"]";
 	}
 	
 

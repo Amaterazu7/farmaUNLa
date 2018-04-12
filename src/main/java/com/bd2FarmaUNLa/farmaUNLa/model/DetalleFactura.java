@@ -1,33 +1,33 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
-import java.util.ArrayList;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class DetalleFactura {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "idDetalleFactura")
 	private long id;
-	private int codigoFactura;
 	private int cantidad;
 	private long precioLista;
 	private long precioVenta;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idProducto", referencedColumnName = "idProducto")
 	private Producto producto;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idFactura", referencedColumnName = "idFactura")
+	private Factura factura;
 	
 	public DetalleFactura(){} 
 	
-	public DetalleFactura(long id, int cantidad, long precioLista, long precioVenta, Producto producto) {
+	public DetalleFactura(long id, int cantidad, long precioLista, long precioVenta, Producto producto, Factura factura) {
 		this.id = id;
 		this.cantidad = cantidad;
 		this.precioLista = precioLista;	
 		this.precioVenta = precioVenta;		
 		this.producto = producto;
+		this.factura = factura;
 	}
 	
 	
@@ -36,13 +36,6 @@ public class DetalleFactura {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	
-	public int getCodigoFactura() {
-		return codigoFactura;
-	}
-	public void setCodigoFactura(int codigoFactura) {
-		this.codigoFactura = codigoFactura;
 	}
 	
 	public int getCantidad() {
@@ -73,6 +66,13 @@ public class DetalleFactura {
 		this.producto = producto;
 	}
 	
+	public Factura getFactura() {
+		return factura;
+	}
+	public void setFactura(Factura factura) {
+		this.factura = factura;
+	}
+	
 
 	@Override
 	public int hashCode() {
@@ -96,7 +96,7 @@ public class DetalleFactura {
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id  + ", codigoFactura=" + codigoFactura  + ", cantidad=" + cantidad  + "precioLista=" + precioLista + "precioVenta=" + precioVenta + ", producto=" + producto  + "]";
+		return "Customer [id=" + id  + ", cantidad=" + cantidad  + "precioLista=" + precioLista + "precioVenta=" + precioVenta + ", producto=" + producto.getId()  + ", factura=" + factura.getId()  + "]";
 	}
 	
 
