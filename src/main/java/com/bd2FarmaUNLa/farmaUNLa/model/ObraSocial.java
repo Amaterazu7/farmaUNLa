@@ -1,5 +1,6 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,7 @@ public class ObraSocial {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="idObraSocial")
 	private long id;
 	private String nombre;
 	

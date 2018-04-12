@@ -1,5 +1,6 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
@@ -16,14 +17,14 @@ public class Factura {
 	private long id;
 	private int codigo;
 	private int nroTicket;
-	private String fecha;
+	private Date fecha;
 	private Sucursal sucursal;
 	private FormaDePago formaDePago;
 	private ArrayList<DetalleFactura> detalleList;
 	
 	public Factura(){} 
 	
-	public Factura(long id, int codigo, int nroTicket, String fecha, Sucursal sucursal, FormaDePago formaDePago) {
+	public Factura(long id, int codigo, int nroTicket, Date fecha, Sucursal sucursal, FormaDePago formaDePago) {
 		this.id = id;
 		this.codigo = codigo;
 		this.nroTicket = nroTicket;
@@ -54,10 +55,10 @@ public class Factura {
 		this.nroTicket = nroTicket;
 	}
 
-	public String getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 

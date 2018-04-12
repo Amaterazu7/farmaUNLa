@@ -1,41 +1,35 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Persona {
 
 	@Id
-	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	@Column(name="dni")
 	private int dni;
-	@Column(name="numAfiliado")
 	private String numAfiliado;
-	@Column(name="apellido")
 	private String apellido;
-	@Column(name="nombre")
 	private String nombre;
-	@Column(name="calle")
 	private String calle;
-	@Column(name="numero")
 	private String numero;
-	@Column(name="provincia")
-	private Provincia provincia;
-	@Column(name="localidad")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idLocalidad", referencedColumnName = "idLocalidad")
 	private Localidad localidad;
-	@Column(name="obraSocial")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idObraSocial", referencedColumnName = "idObraSocial")
 	private ObraSocial obraSocial;
 	
 	public Persona(){} 
 	
-	public Persona(long id, int dni, String numAfiliado, String apellido, String nombre, String calle, String numero, Provincia provincia, Localidad localidad, ObraSocial obraSocial) {
+	public Persona(long id, int dni, String numAfiliado, String apellido, String nombre, String calle, String numero, Localidad localidad, ObraSocial obraSocial) {
 		this.id = id;
 		this.dni = dni;
 		this.numAfiliado = numAfiliado;
@@ -43,7 +37,6 @@ public class Persona {
 		this.nombre = nombre;		
 		this.calle = calle;
 		this.numero = numero;
-		this.provincia = provincia;
 		this.localidad = localidad;
 		this.obraSocial = obraSocial;
 	}
@@ -98,13 +91,6 @@ public class Persona {
 		this.numero = numero;
 	}
 	
-	public Provincia getProvincia() {
-		return provincia;
-	}
-	public void setProvincia(Provincia provincia) {
-		this.provincia = provincia;
-	}
-
 	public Localidad getLocalidad() {
 		return localidad;
 	}

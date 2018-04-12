@@ -2,6 +2,7 @@ package com.bd2FarmaUNLa.farmaUNLa.model;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,10 +14,11 @@ public class Provincia {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="idProvincia")
 	private long id;
 	private int codigo;
 	private String nombre;
-	private ArrayList<Localidad> localidadList;
+	//private ArrayList<Localidad> localidadList;
 	
 	public Provincia(){} 
 	

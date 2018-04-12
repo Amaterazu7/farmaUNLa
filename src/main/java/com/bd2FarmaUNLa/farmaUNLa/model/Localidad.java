@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -12,15 +13,18 @@ public class Localidad {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="idLocalidad")
 	private long id;
-	private int codigoProvincia;
 	private String nombre;
+	@ManyToOne
+	@JoinColumn(name = "idProvincia", referencedColumnName = "idProvincia")
+	private Provincia provincia;
 	
 	public Localidad(){} 
 	
-	public Localidad(long id, int codigoProvincia, String nombre) {
+	public Localidad(long id, String nombre, Provincia provincia) {
 		this.id = id;
-		this.codigoProvincia = codigoProvincia;
+		this.provincia = provincia;
 		this.nombre = nombre;
 	}
 	
@@ -30,14 +34,7 @@ public class Localidad {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	
-	public int getCodigoProvincia() {
-		return codigoProvincia;
-	}
-	public void setCodigoProvincia(int codigoProvincia) {
-		this.codigoProvincia = codigoProvincia;
-	}
+	}	
 	
 	public String getNombre() {
 		return nombre;
@@ -45,6 +42,14 @@ public class Localidad {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public Provincia getProvincia() {
+		return provincia;
+	}
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
+	}
+
 
 
 	@Override
