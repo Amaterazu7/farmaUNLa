@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Empleado extends Persona {
-
+	
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "idEmpleado")
 	private long idEmpleado;
