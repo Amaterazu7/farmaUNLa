@@ -28,8 +28,8 @@ public class ProvinciaServiceImplementation implements ProvinciaService {
 	}
 		
 	@Override
-	public Provincia findById(long id) {
-		return provinciaRepository.findById(id);
+	public Provincia findById(long idProvincia) {
+		return provinciaRepository.findByIdProvincia(idProvincia);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class ProvinciaServiceImplementation implements ProvinciaService {
 
 	@Override
 	public boolean isProvinciaExist(Provincia provincia) {
-		return findById(provincia.getId())!=null;
+		return findById(provincia.getIdProvincia())!=null;
 	}
 	
 	@Override

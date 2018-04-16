@@ -1,25 +1,33 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import java.util.*;
+
 import javax.persistence.*;
 
 @Entity
+@Table(name = "producto")
 public class Producto {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "idProducto")
-	private long id;
+	private long idProducto;
 	private int codigo;
 	private String descripcion;
 	private long precio;
-	@ManyToOne(cascade = CascadeType.ALL)
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "idTipoProducto", referencedColumnName = "idTipoProducto")
 	private TipoProducto tipoProducto;
 	
+	@OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+	private List<DetalleFactura> detalles = new ArrayList<>();
+	
+	
 	public Producto(){} 
 	
-	public Producto(long id, int codigo, String descripcion, long precio, TipoProducto tipoProducto) {
-		this.id = id;
+	public Producto(long idProducto, int codigo, String descripcion, long precio, TipoProducto tipoProducto) {
+		this.idProducto = idProducto;
 		this.codigo = codigo;
 		this.descripcion = descripcion;
 		this.precio = precio;
@@ -27,11 +35,11 @@ public class Producto {
 	}
 	
 	
-	public long getId() {
-		return id;
+	public long getIdProducto() {
+		return idProducto;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setIdProducto(long idProducto) {
+		this.idProducto = idProducto;
 	}
 	
 	public int getCodigo() {
@@ -40,7 +48,7 @@ public class Producto {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-
+	
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -61,13 +69,20 @@ public class Producto {
 	public void setTipoProducto(TipoProducto tipoProducto) {
 		this.tipoProducto = tipoProducto;
 	}
-	
+		
+	public List<DetalleFactura> getDetalles() {
+		return detalles;
+	}
+	public void setDetalles(List<DetalleFactura> detalles) {
+		this.detalles = detalles;
+	}
+
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (idProducto ^ (idProducto >>> 32));
 		return result;
 	}
 	@Override
@@ -79,13 +94,13 @@ public class Producto {
 		if (!(obj instanceof Producto))
 			return false;
 		Producto other = (Producto) obj;
-		if (id != other.id)
+		if (idProducto != other.idProducto)
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id  + ", codigo=" + codigo  + ", descripcion=" + descripcion  + ", precio=" + precio  + ", tipoProducto=" + tipoProducto.getId()  + "]";
+		return "Customer [idProducto=" + idProducto  + ", codigo=" + codigo  + ", descripcion=" + descripcion  + ", precio=" + precio  + ", tipoProducto=" + tipoProducto.getIdTipoProducto()  + "]";
 	}
 	
 

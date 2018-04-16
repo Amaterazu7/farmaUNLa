@@ -1,11 +1,6 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class TipoProducto {
@@ -13,22 +8,25 @@ public class TipoProducto {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="idTipoProducto")
-	private long id;
+	private long idTipoProducto;
 	private String nombre;
+	@OneToOne(mappedBy = "tipoProducto", fetch = FetchType.LAZY)
+	private Producto producto;
+	
 	
 	public TipoProducto(){} 
 	
-	public TipoProducto(long id, String nombre) {
-		this.id = id;
+	public TipoProducto(long idTipoProducto, String nombre) {
+		this.idTipoProducto = idTipoProducto;
 		this.nombre = nombre;
 	}
 	
 	
-	public long getId() {
-		return id;
+	public long getIdTipoProducto() {
+		return idTipoProducto;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setId(long idTipoProducto) {
+		this.idTipoProducto = idTipoProducto;
 	}
 
 	public String getNombre() {
@@ -43,7 +41,7 @@ public class TipoProducto {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (idTipoProducto ^ (idTipoProducto >>> 32));
 		return result;
 	}
 	@Override
@@ -55,13 +53,13 @@ public class TipoProducto {
 		if (!(obj instanceof TipoProducto))
 			return false;
 		TipoProducto other = (TipoProducto) obj;
-		if (id != other.id)
+		if (idTipoProducto != other.idTipoProducto)
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", nombre=" + nombre +"]";
+		return "Customer [idTipoProducto=" + idTipoProducto + ", nombre=" + nombre +"]";
 	}
 	
 

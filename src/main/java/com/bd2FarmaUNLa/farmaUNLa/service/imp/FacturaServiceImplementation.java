@@ -28,8 +28,8 @@ public class FacturaServiceImplementation implements FacturaService {
 	}
 		
 	@Override
-	public Factura findById(long id) {
-		return facturaRepository.findById(id);
+	public Factura findById(long idFactura) {
+		return facturaRepository.findByIdFactura(idFactura);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class FacturaServiceImplementation implements FacturaService {
 
 	@Override
 	public boolean isFacturaExist(Factura factura) {
-		return findById(factura.getId())!=null;
+		return findById(factura.getIdFactura())!=null;
 	}
 	
 	@Override

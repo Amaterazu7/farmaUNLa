@@ -5,5 +5,5 @@ import com.bd2FarmaUNLa.farmaUNLa.model.Provincia;
 
 public interface ProvinciaRepository extends CrudRepository<Provincia, Long> {
 
-	Provincia findById(long id);
+	Provincia findByIdProvincia(long idProvincia);
 }

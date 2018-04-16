@@ -5,5 +5,5 @@ import com.bd2FarmaUNLa.farmaUNLa.model.Sucursal;
 
 public interface SucursalRepository extends CrudRepository<Sucursal, Long> {
 
-	Sucursal findById(long id);
+	Sucursal findByIdSucursal(long idSucursal);
 }

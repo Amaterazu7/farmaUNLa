@@ -28,8 +28,8 @@ public class ProductoServiceImplementation implements ProductoService {
 	}
 		
 	@Override
-	public Producto findById(long id) {
-		return productoRepository.findById(id);
+	public Producto findById(long idProducto) {
+		return productoRepository.findByIdProducto(idProducto);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class ProductoServiceImplementation implements ProductoService {
 
 	@Override
 	public boolean isProductoExist(Producto producto) {
-		return findById(producto.getId())!=null;
+		return findById(producto.getIdProducto())!=null;
 	}
 	
 	@Override

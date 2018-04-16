@@ -28,8 +28,8 @@ public class EmpleadoServiceImplementation implements EmpleadoService {
 	}
 		
 	@Override
-	public Empleado findById(long id) {
-		return empleadoRepository.findById(id);
+	public Empleado findByCuil(long cuil) {
+		return empleadoRepository.findByCuil(cuil);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class EmpleadoServiceImplementation implements EmpleadoService {
 
 	@Override
 	public boolean isEmpleadoExist(Empleado empleado) {
-		return findById(empleado.getIdEmpleado())!=null;
+		return findByCuil(empleado.getCuil())!=null;
 	}
 	
 	@Override

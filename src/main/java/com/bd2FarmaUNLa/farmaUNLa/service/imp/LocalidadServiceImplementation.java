@@ -28,8 +28,8 @@ public class LocalidadServiceImplementation implements LocalidadService {
 	}
 		
 	@Override
-	public Localidad findById(long id) {
-		return localidadRepository.findById(id);
+	public Localidad findById(long idLocalidad) {
+		return localidadRepository.findByIdLocalidad(idLocalidad);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class LocalidadServiceImplementation implements LocalidadService {
 
 	@Override
 	public boolean isLocalidadExist(Localidad localidad) {
-		return findById(localidad.getId())!=null;
+		return findById(localidad.getIdLocalidad())!=null;
 	}
 	
 	@Override

@@ -8,21 +8,24 @@ public class DetalleFactura {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "idDetalleFactura")
-	private long id;
+	private long idDetalleFactura;
 	private int cantidad;
 	private long precioLista;
 	private long precioVenta;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "idProducto", referencedColumnName = "idProducto")
 	private Producto producto;
-	@ManyToOne(cascade = CascadeType.ALL)
+	
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idFactura", referencedColumnName = "idFactura")
 	private Factura factura;
 	
+	
 	public DetalleFactura(){} 
 	
-	public DetalleFactura(long id, int cantidad, long precioLista, long precioVenta, Producto producto, Factura factura) {
-		this.id = id;
+	public DetalleFactura(long idDetalleFactura, int cantidad, long precioLista, long precioVenta, Producto producto, Factura factura) {
+		this.idDetalleFactura = idDetalleFactura;
 		this.cantidad = cantidad;
 		this.precioLista = precioLista;	
 		this.precioVenta = precioVenta;		
@@ -31,11 +34,11 @@ public class DetalleFactura {
 	}
 	
 	
-	public long getId() {
-		return id;
+	public long getIdDetalleFactura() {
+		return idDetalleFactura;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setId(long idDetalleFactura) {
+		this.idDetalleFactura = idDetalleFactura;
 	}
 	
 	public int getCantidad() {
@@ -78,7 +81,7 @@ public class DetalleFactura {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (idDetalleFactura ^ (idDetalleFactura >>> 32));
 		return result;
 	}
 	@Override
@@ -90,13 +93,13 @@ public class DetalleFactura {
 		if (!(obj instanceof DetalleFactura))
 			return false;
 		DetalleFactura other = (DetalleFactura) obj;
-		if (id != other.id)
+		if (idDetalleFactura != other.idDetalleFactura)
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id  + ", cantidad=" + cantidad  + "precioLista=" + precioLista + "precioVenta=" + precioVenta + ", producto=" + producto.getId()  + ", factura=" + factura.getId()  + "]";
+		return "Customer [idDetalleFactura=" + idDetalleFactura  + ", cantidad=" + cantidad  + "precioLista=" + precioLista + "precioVenta=" + precioVenta + ", producto=" + producto.getIdProducto() + ", factura=" + factura.getIdFactura()  + "]";
 	}
 	
 

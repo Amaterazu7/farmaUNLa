@@ -1,6 +1,8 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -10,30 +12,39 @@ public class Factura {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "idFactura")
-	private long id;
+	private long idFactura;
 	private int codigo;
 	private String nroTicket;
 	private Date fecha;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idSucursal", referencedColumnName = "idSucursal")
-	private Sucursal sucursal;
-	@ManyToOne(cascade = CascadeType.ALL)
+	
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idFormaDePago", referencedColumnName = "idFormaDePago")
 	private FormaDePago formaDePago;
-	@OneToOne(cascade = CascadeType.ALL)
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idSucursal", referencedColumnName = "idSucursal")
+	private Sucursal sucursal;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idCajero", referencedColumnName = "idEmpleado")
 	private Empleado cajero;
-	@OneToOne(cascade = CascadeType.ALL)
+	
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idVendedor", referencedColumnName = "idEmpleado")
 	private Empleado vendedor;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idPersona", referencedColumnName = "idPersona")
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idCliente", referencedColumnName = "idPersona")
 	private Persona cliente;
+	
+	@OneToMany(mappedBy = "factura", cascade = CascadeType.ALL)
+	private List<DetalleFactura> detalles = new ArrayList<>();
+	
 	
 	public Factura(){} 
 	
-	public Factura(long id, int codigo, String nroTicket, Date fecha, Sucursal sucursal, FormaDePago formaDePago, Empleado vendedor, Empleado cajero, Persona cliente) {
-		this.id = id;
+	public Factura(long idFactura, int codigo, String nroTicket, Date fecha, Sucursal sucursal, FormaDePago formaDePago, Empleado vendedor, Empleado cajero, Persona cliente) {
+		this.idFactura = idFactura;
 		this.codigo = codigo;
 		this.nroTicket = nroTicket;
 		this.fecha = fecha;		
@@ -45,11 +56,11 @@ public class Factura {
 	}
 	
 	
-	public long getId() {
-		return id;
+	public long getIdFactura() {
+		return idFactura;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setIdFactura(long idFactura) {
+		this.idFactura = idFactura;
 	}
 	
 	public int getCodigo() {
@@ -119,7 +130,7 @@ public class Factura {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (idFactura ^ (idFactura >>> 32));
 		return result;
 	}
 	@Override
@@ -131,13 +142,13 @@ public class Factura {
 		if (!(obj instanceof Factura))
 			return false;
 		Factura other = (Factura) obj;
-		if (id != other.id)
+		if (idFactura != other.idFactura)
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id  + ", nroTicket=" + nroTicket  + ", fecha=" + fecha  + ", sucursal=" + sucursal.getId()  + ", formaDePago=" + formaDePago.getId() + ", vendedor=" + vendedor.getIdEmpleado() + ", cajero=" + cajero.getIdEmpleado() + ", cliente=" + cliente.getId() + "]";
+		return "Customer [idFactura=" + idFactura  + ", nroTicket=" + nroTicket  + ", fecha=" + fecha  + ", sucursal=" + sucursal.getIdSucursal()  + ", formaDePago=" + formaDePago.getIdFormaDePago() + ", vendedor=" + vendedor.getCuil() + ", cajero=" + cajero.getCuil() + ", cliente=" + cliente.getIdPersona() + "]";
 	}
 	
 

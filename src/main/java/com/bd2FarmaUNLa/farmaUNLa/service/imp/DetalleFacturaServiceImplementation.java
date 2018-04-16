@@ -49,7 +49,7 @@ public class DetalleFacturaServiceImplementation implements DetalleFacturaServic
 
 	@Override
 	public boolean isDetalleFacturaExist(DetalleFactura detalleFactura) {
-		return findById(detalleFactura.getId())!=null;
+		return findById(detalleFactura.getIdDetalleFactura())!=null;
 	}
 	
 	@Override

@@ -1,13 +1,14 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Provincia {
@@ -15,24 +16,27 @@ public class Provincia {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="idProvincia")
-	private long id;
+	private long idProvincia;
 	private int codigo;
 	private String nombre;
-	//private ArrayList<Localidad> localidadList;
+	
+	@OneToMany(mappedBy = "provincia", cascade = CascadeType.ALL)
+	private List<Localidad> localidades = new ArrayList<>();
+	
 	
 	public Provincia(){} 
 	
-	public Provincia(long id, String nombre) {
-		this.id = id;
+	public Provincia(long idProvincia, String nombre) {
+		this.idProvincia = idProvincia;
 		this.nombre = nombre;
 	}
 	
 	
-	public long getId() {
-		return id;
+	public long getIdProvincia() {
+		return idProvincia;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setIdProvincia(long idProvincia) {
+		this.idProvincia = idProvincia;
 	}
 
 	public int getCodigo() {
@@ -54,7 +58,7 @@ public class Provincia {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (idProvincia ^ (idProvincia >>> 32));
 		return result;
 	}
 	@Override
@@ -66,13 +70,13 @@ public class Provincia {
 		if (!(obj instanceof Provincia))
 			return false;
 		Provincia other = (Provincia) obj;
-		if (id != other.id)
+		if (idProvincia != other.idProvincia)
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", codigo=" + codigo +", nombre=" + nombre +"]";
+		return "Customer [idProvincia=" + idProvincia + ", codigo=" + codigo +", nombre=" + nombre +"]";
 	}
 	
 

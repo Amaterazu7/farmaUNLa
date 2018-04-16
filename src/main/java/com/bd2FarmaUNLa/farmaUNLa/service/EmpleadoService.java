@@ -6,7 +6,7 @@ import com.bd2FarmaUNLa.farmaUNLa.model.Empleado;
 
 public interface EmpleadoService {
 	
-	Empleado findById(long id);
+	Empleado findByCuil(long cuil);
 	
 	void saveEmpleado(Empleado empleado);
 	

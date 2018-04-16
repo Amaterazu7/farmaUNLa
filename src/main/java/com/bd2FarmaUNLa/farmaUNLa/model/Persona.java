@@ -1,33 +1,42 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name="Persona")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name="persona")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Persona {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "idPersona")
-	private long id;
+	private long idPersona;
 	private int dni;
 	private String numAfiliado;
 	private String apellido;
 	private String nombre;
 	private String calle;
 	private String numero;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "idLocalidad", referencedColumnName = "idLocalidad")
 	private Localidad localidad;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "idObraSocial", referencedColumnName = "idObraSocial")
 	private ObraSocial obraSocial;
 	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	private List<Factura> facturas = new ArrayList<>();
+	
+	
 	public Persona(){} 
 	
-	public Persona(long id, int dni, String numAfiliado, String apellido, String nombre, String calle, String numero, Localidad localidad, ObraSocial obraSocial) {
-		this.id = id;
+	public Persona(long idPersona, int dni, String numAfiliado, String apellido, String nombre, String calle, String numero, Localidad localidad, ObraSocial obraSocial) {
+		this.idPersona = idPersona;
 		this.dni = dni;
 		this.numAfiliado = numAfiliado;
 		this.apellido = apellido;
@@ -39,11 +48,11 @@ public class Persona {
 	}
 	
 	
-	public long getId() {
-		return id;
+	public long getIdPersona() {
+		return idPersona;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setIdPersona(long idPersona) {
+		this.idPersona = idPersona;
 	}
 	
 	public int getDni() {
@@ -107,7 +116,7 @@ public class Persona {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (idPersona ^ (idPersona >>> 32));
 		return result;
 	}
 	@Override
@@ -119,13 +128,13 @@ public class Persona {
 		if (!(obj instanceof Persona))
 			return false;
 		Persona other = (Persona) obj;
-		if (id != other.id)
+		if (idPersona != other.idPersona)
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id  + ", dni=" + dni  + ", numAfiliado=" + numAfiliado  + ", apellido=" + apellido  + ", nombre=" + nombre  + ", calle=" + calle  + ", numero=" + numero + ", localidad=" + localidad.getId() +", obraSocial=" + obraSocial.getId()  + "]";
+		return "Customer [idPersona=" + idPersona  + ", dni=" + dni  + ", numAfiliado=" + numAfiliado  + ", apellido=" + apellido  + ", nombre=" + nombre  + ", calle=" + calle  + ", numero=" + numero + ", localidad=" + localidad.getIdLocalidad() +", obraSocial=" + obraSocial.getId()  + "]";
 	}
 	
 

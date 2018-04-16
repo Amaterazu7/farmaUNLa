@@ -5,5 +5,5 @@ import com.bd2FarmaUNLa.farmaUNLa.model.FormaDePago;
 
 public interface FormaDePagoRepository extends CrudRepository<FormaDePago, Long> {
 
-	FormaDePago findById(long id);
+	FormaDePago findByIdFormaDePago(long idFormaDePago);
 }

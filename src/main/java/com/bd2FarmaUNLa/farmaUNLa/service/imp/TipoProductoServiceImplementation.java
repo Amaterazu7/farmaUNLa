@@ -49,7 +49,7 @@ public class TipoProductoServiceImplementation implements TipoProductoService {
 
 	@Override
 	public boolean isTipoProductoExist(TipoProducto tipoProducto) {
-		return findById(tipoProducto.getId())!=null;
+		return findById(tipoProducto.getIdTipoProducto())!=null;
 	}
 	
 	@Override

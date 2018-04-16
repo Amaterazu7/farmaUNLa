@@ -28,8 +28,8 @@ public class SucursalServiceImplementation implements SucursalService {
 	}
 		
 	@Override
-	public Sucursal findById(long id) {
-		return sucursalRepository.findById(id);
+	public Sucursal findById(long idSucursal) {
+		return sucursalRepository.findByIdSucursal(idSucursal);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class SucursalServiceImplementation implements SucursalService {
 
 	@Override
 	public boolean isSucursalExist(Sucursal sucursal) {
-		return findById(sucursal.getId())!=null;
+		return findById(sucursal.getIdSucursal())!=null;
 	}
 	
 	@Override

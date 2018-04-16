@@ -28,8 +28,8 @@ public class PersonaServiceImplementation implements PersonaService {
 	}
 		
 	@Override
-	public Persona findById(long id) {
-		return personaRepository.findById(id);
+	public Persona findById(long idPersona) {
+		return personaRepository.findByIdPersona(idPersona);
 	}
 
 	@Override

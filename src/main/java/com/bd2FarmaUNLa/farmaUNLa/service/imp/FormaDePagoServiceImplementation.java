@@ -28,8 +28,8 @@ public class FormaDePagoServiceImplementation implements FormaDePagoService {
 	}
 		
 	@Override
-	public FormaDePago findById(long id) {
-		return formaDePagoRepository.findById(id);
+	public FormaDePago findById(long idFormaDePago) {
+		return formaDePagoRepository.findByIdFormaDePago(idFormaDePago);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class FormaDePagoServiceImplementation implements FormaDePagoService {
 
 	@Override
 	public boolean isFormaDePagoExist(FormaDePago formaDePago) {
-		return findById(formaDePago.getId())!=null;
+		return findById(formaDePago.getIdFormaDePago())!=null;
 	}
 	
 	@Override

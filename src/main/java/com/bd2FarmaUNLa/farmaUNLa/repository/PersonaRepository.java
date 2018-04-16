@@ -6,7 +6,7 @@ import com.bd2FarmaUNLa.farmaUNLa.model.Persona;
 
 public interface PersonaRepository extends CrudRepository<Persona, Long> {
 	
-	Persona findById(long id);
+	Persona findByIdPersona(long idPersona);
 	
 	@Query("SELECT p FROM Persona p")
 	Persona findAllPersonas();

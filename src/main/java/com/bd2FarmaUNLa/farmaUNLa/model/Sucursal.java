@@ -1,13 +1,10 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.*;
 
 @Entity
 public class Sucursal {
@@ -15,18 +12,25 @@ public class Sucursal {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "idSucursal")
-	private long id;
+	private long idSucursal;
 	private Integer numSucursal;
 	private String calle;
 	private String numero;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "idLocalidad", referencedColumnName = "idLocalidad")
 	private Localidad localidad;
 	
+	@OneToMany(mappedBy = "sucursal", cascade = CascadeType.ALL)
+	private List<Empleado> empleados;
+	
+	@OneToMany(mappedBy = "sucursal", cascade = CascadeType.ALL)
+	private List<Factura> facturas = new ArrayList<>();
+	
 	public Sucursal(){} 
 	
-	public Sucursal(long id, Integer numSucursal, String calle, String numero, Localidad localidad) {
-		this.id = id;
+	public Sucursal(long idSucursal, Integer numSucursal, String calle, String numero, Localidad localidad) {
+		this.idSucursal = idSucursal;
 		this.numSucursal = numSucursal;
 		this.calle = calle;
 		this.numero = numero;
@@ -34,11 +38,11 @@ public class Sucursal {
 	}
 	
 	
-	public long getId() {
-		return id;
+	public long getIdSucursal() {
+		return idSucursal;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setIdSucursal(long idSucursal) {
+		this.idSucursal = idSucursal;
 	}
 
 	public Integer getNumSucursal() {
@@ -68,14 +72,20 @@ public class Sucursal {
 	public void setLocalidad(Localidad localidad) {
 		this.localidad = localidad;
 	}
-
+	
+	public List<Empleado> getEmpleados() {
+		return empleados;
+	}
+	public void setEmpleados(List<Empleado> empleados) {
+		this.empleados = empleados;
+	}
 	
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (idSucursal ^ (idSucursal >>> 32));
 		return result;
 	}
 	@Override
@@ -87,13 +97,13 @@ public class Sucursal {
 		if (!(obj instanceof Sucursal))
 			return false;
 		Sucursal other = (Sucursal) obj;
-		if (id != other.id)
+		if (idSucursal != other.idSucursal)
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "Customer [id=" + id  + ", numSucursal=" + numSucursal  + ", calle=" + calle  + ", numero=" + numero  + ", localidad=" + localidad.getId() +"]";
+		return "Customer [idSucursal=" + idSucursal  + ", numSucursal=" + numSucursal  + ", calle=" + calle  + ", numero=" + numero  + ", localidad=" + localidad.getIdLocalidad() +"]";
 	}
 	
 
