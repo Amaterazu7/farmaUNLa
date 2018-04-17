@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Localidad {
 
@@ -19,8 +21,9 @@ public class Localidad {
 	private long idLocalidad;
 	private String nombre;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idProvincia", referencedColumnName = "idProvincia")
+	@JsonBackReference
 	private Provincia provincia;
 	
 	

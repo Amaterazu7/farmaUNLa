@@ -8,6 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,7 +23,8 @@ public class Provincia {
 	private int codigo;
 	private String nombre;
 	
-	@OneToMany(mappedBy = "provincia", cascade = CascadeType.ALL)
+	@JsonManagedReference
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "provincia")
 	private List<Localidad> localidades = new ArrayList<>();
 	
 	
@@ -52,8 +56,15 @@ public class Provincia {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-
+	
+	public List<Localidad> getLocalidades() {
+		return localidades;
+	}
+	public void setLocalidades(List<Localidad> localidades) {
+		this.localidades = localidades;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
