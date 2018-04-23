@@ -1,7 +1,9 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
 import javax.persistence.*;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="tipoProducto")
@@ -14,7 +16,8 @@ public class TipoProducto {
 	private String nombre;
 	
 	@OneToOne(mappedBy = "tipoProducto", fetch = FetchType.LAZY)
-	@JsonBackReference
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idTipoProducto")
+	@JsonIdentityReference(alwaysAsId = true)
 	private Producto producto;
 	
 	

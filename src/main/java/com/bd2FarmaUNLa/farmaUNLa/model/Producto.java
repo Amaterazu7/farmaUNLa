@@ -1,7 +1,10 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
 import javax.persistence.*;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "producto")
@@ -17,7 +20,8 @@ public class Producto {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "idTipoProducto", referencedColumnName = "idTipoProducto", nullable = false, foreignKey = @ForeignKey(name = "FK_tipoProducto_producto"))
-	@JsonManagedReference
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idTipoProducto")
+	@JsonIdentityReference(alwaysAsId = true)
 	private TipoProducto tipoProducto;
 	
 	

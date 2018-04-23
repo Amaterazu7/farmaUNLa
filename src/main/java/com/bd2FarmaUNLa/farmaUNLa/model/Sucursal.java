@@ -1,8 +1,12 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="sucursal")
@@ -18,9 +22,20 @@ public class Sucursal {
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idLocalidad", referencedColumnName = "idLocalidad", nullable = false, foreignKey = @ForeignKey(name = "FK_localidad_sucursal"))
-	@JsonManagedReference
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idLocalidad")
+	@JsonIdentityReference(alwaysAsId = true)
 	private Localidad localidad;
+	
+	@OneToMany(mappedBy = "sucursal", fetch=FetchType.EAGER)
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idSucursal")
+	@JsonIdentityReference(alwaysAsId = true)
+	private Set<Empleado> empleados;
 
+	@OneToMany(mappedBy = "sucursal", fetch=FetchType.EAGER)
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idSucursal")
+	@JsonIdentityReference(alwaysAsId = true)
+	private Set<Factura> facturas;
+	
 	
 	public Sucursal(){} 
 	

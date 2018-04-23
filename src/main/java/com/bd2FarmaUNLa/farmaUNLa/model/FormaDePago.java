@@ -1,6 +1,12 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="formaDePago")
@@ -19,6 +25,11 @@ public class FormaDePago {
 		this.idFormaDePago = idFormaDePago;
 		this.descripcion = descripcion;
 	}
+	
+	@OneToMany(mappedBy = "formaDePago", fetch=FetchType.EAGER)
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idFormaDePago")
+	@JsonIdentityReference(alwaysAsId = true)
+	private Set<Factura> Facturas;
 	
 	
 	public long getIdFormaDePago() {

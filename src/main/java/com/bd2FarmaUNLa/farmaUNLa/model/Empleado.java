@@ -1,8 +1,12 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="empleado")
@@ -14,8 +18,19 @@ public class Empleado extends Persona {
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idSucursal", referencedColumnName = "idSucursal", nullable = false, foreignKey = @ForeignKey(name = "FK_sucursal_empleado"))
-	@JsonManagedReference
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idSucursal")
+	@JsonIdentityReference(alwaysAsId = true)
 	private Sucursal sucursal;
+	
+	@OneToMany(mappedBy = "cajero", fetch=FetchType.EAGER)
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idEmpleado")
+	@JsonIdentityReference(alwaysAsId = true)
+	private Set<Factura> cFacturas;
+	
+	@OneToMany(mappedBy = "vendedor", fetch=FetchType.EAGER)
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idEmpleado")
+	@JsonIdentityReference(alwaysAsId = true)
+	private Set<Factura> vFacturas;
 	
 	
 	public Empleado(){} 

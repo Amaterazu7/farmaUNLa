@@ -1,6 +1,10 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.*;
 
 
 @Entity
@@ -13,6 +17,11 @@ public class Provincia {
 	private long idProvincia;
 	private int codigo;
 	private String nombre;
+	
+	@OneToMany(mappedBy = "provincia", fetch=FetchType.EAGER)
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idProvincia")
+	@JsonIdentityReference(alwaysAsId = true)
+	private Set<Localidad> localidades;
 	
 	
 	public Provincia(){} 

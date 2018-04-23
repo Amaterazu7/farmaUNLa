@@ -5,7 +5,9 @@ import java.sql.Date;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="factura")
@@ -23,27 +25,32 @@ public class Factura {
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idFormaDePago", referencedColumnName = "idFormaDePago", nullable = false, foreignKey = @ForeignKey(name = "FK_formaDePago_factura"))
-	@JsonManagedReference
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idFormaDePago")
+	@JsonIdentityReference(alwaysAsId = true)
 	private FormaDePago formaDePago;
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idSucursal", referencedColumnName = "idSucursal", nullable = false, foreignKey = @ForeignKey(name = "FK_sucursal_factura"))
-	@JsonManagedReference
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idSucursal")
+	@JsonIdentityReference(alwaysAsId = true)
 	private Sucursal sucursal;
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idCajero", referencedColumnName = "idEmpleado", nullable = false, foreignKey = @ForeignKey(name = "FK_empleadoCajero_factura"))
-	@JsonManagedReference
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idEmpleado")
+	@JsonIdentityReference(alwaysAsId = true)
 	private Empleado cajero;
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idVendedor", referencedColumnName = "idEmpleado", nullable = false, foreignKey = @ForeignKey(name = "FK_empleadoVendedor_factura"))
-	@JsonManagedReference
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idEmpleado")
+	@JsonIdentityReference(alwaysAsId = true)
 	private Empleado vendedor;
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idCliente", referencedColumnName = "idPersona", nullable = false, foreignKey = @ForeignKey(name = "FK_persona_factura"))
-	@JsonManagedReference
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idPersona")
+	@JsonIdentityReference(alwaysAsId = true)
 	private Persona cliente;
 	
 	

@@ -1,8 +1,12 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="persona")
@@ -22,13 +26,20 @@ public class Persona {
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idLocalidad", referencedColumnName = "idLocalidad", nullable = false, foreignKey = @ForeignKey(name = "FK_localidad_persona"))
-	@JsonManagedReference
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idLocalidad")
+	@JsonIdentityReference(alwaysAsId = true)
 	private Localidad localidad;
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idObraSocial", referencedColumnName = "idObraSocial", nullable = false, foreignKey = @ForeignKey(name = "FK_obraSocial_persona"))
-	@JsonManagedReference
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idObraSocial")
+	@JsonIdentityReference(alwaysAsId = true)
 	private ObraSocial obraSocial;
+	
+	@OneToMany(mappedBy = "cliente", fetch=FetchType.EAGER)
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idPersona")
+	@JsonIdentityReference(alwaysAsId = true)
+	private Set<Factura> facturas;
 	
 	
 	public Persona(){} 

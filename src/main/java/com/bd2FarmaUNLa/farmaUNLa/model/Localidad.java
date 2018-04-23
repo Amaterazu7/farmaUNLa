@@ -1,8 +1,12 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="localidad")
@@ -16,10 +20,21 @@ public class Localidad {
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idProvincia", referencedColumnName = "idProvincia", nullable = false, foreignKey = @ForeignKey(name = "FK_provincia_localidad"))
-	@JsonManagedReference
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idProvincia")
+	@JsonIdentityReference(alwaysAsId = true)
 	private Provincia provincia;
-
-
+	
+	@OneToMany(mappedBy = "localidad", fetch=FetchType.EAGER)
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idLocalidad")
+	@JsonIdentityReference(alwaysAsId = true)
+	private Set<Persona> personas;
+	
+	@OneToMany(mappedBy = "localidad", fetch=FetchType.EAGER)
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idLocalidad")
+	@JsonIdentityReference(alwaysAsId = true)
+	private Set<Sucursal> sucursales;
+	
+	
 	public Localidad(){} 
 	
 	public Localidad(long idLocalidad, String nombre, Provincia provincia) {
