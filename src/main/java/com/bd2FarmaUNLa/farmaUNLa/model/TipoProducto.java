@@ -1,10 +1,10 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
+@Table(name="tipoProducto")
 public class TipoProducto {
 
 	@Id
@@ -14,6 +14,7 @@ public class TipoProducto {
 	private String nombre;
 	
 	@OneToOne(mappedBy = "tipoProducto", fetch = FetchType.LAZY)
+	@JsonBackReference
 	private Producto producto;
 	
 	

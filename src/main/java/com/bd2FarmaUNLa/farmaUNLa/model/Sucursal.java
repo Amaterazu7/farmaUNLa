@@ -1,12 +1,11 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
+@Table(name="sucursal")
 public class Sucursal {
 
 	@Id
@@ -17,15 +16,11 @@ public class Sucursal {
 	private String calle;
 	private String numero;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idLocalidad", referencedColumnName = "idLocalidad")
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "idLocalidad", referencedColumnName = "idLocalidad", nullable = false, foreignKey = @ForeignKey(name = "FK_localidad_sucursal"))
+	@JsonManagedReference
 	private Localidad localidad;
-	
-	@OneToMany(mappedBy = "sucursal", cascade = CascadeType.ALL)
-	private List<Empleado> empleados;
-	
-	@OneToMany(mappedBy = "sucursal", cascade = CascadeType.ALL)
-	private List<Factura> facturas = new ArrayList<>();
+
 	
 	public Sucursal(){} 
 	
@@ -71,13 +66,6 @@ public class Sucursal {
 	}
 	public void setLocalidad(Localidad localidad) {
 		this.localidad = localidad;
-	}
-	
-	public List<Empleado> getEmpleados() {
-		return empleados;
-	}
-	public void setEmpleados(List<Empleado> empleados) {
-		this.empleados = empleados;
 	}
 	
 	

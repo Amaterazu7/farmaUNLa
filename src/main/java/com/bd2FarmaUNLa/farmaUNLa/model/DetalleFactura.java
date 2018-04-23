@@ -2,7 +2,10 @@ package com.bd2FarmaUNLa.farmaUNLa.model;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
+@Table(name="detalleFactura")
 public class DetalleFactura {
 
 	@Id
@@ -13,12 +16,14 @@ public class DetalleFactura {
 	private long precioLista;
 	private long precioVenta;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idProducto", referencedColumnName = "idProducto")
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "idProducto", referencedColumnName = "idProducto", nullable = false, foreignKey = @ForeignKey(name = "FK_producto_detalleFactura"))
+	@JsonManagedReference
 	private Producto producto;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idFactura", referencedColumnName = "idFactura")
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "idFactura", referencedColumnName = "idFactura", nullable = false, foreignKey = @ForeignKey(name = "FK_factura_detalleFactura"))
+	@JsonManagedReference
 	private Factura factura;
 	
 	

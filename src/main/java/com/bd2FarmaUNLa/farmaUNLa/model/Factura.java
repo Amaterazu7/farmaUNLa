@@ -1,12 +1,14 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
+@Table(name="factura")
 public class Factura {
 
 	@Id
@@ -15,30 +17,34 @@ public class Factura {
 	private long idFactura;
 	private int codigo;
 	private String nroTicket;
+	
+	@JsonFormat(pattern = "YYYY-MM-dd")
 	private Date fecha;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idFormaDePago", referencedColumnName = "idFormaDePago")
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "idFormaDePago", referencedColumnName = "idFormaDePago", nullable = false, foreignKey = @ForeignKey(name = "FK_formaDePago_factura"))
+	@JsonManagedReference
 	private FormaDePago formaDePago;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idSucursal", referencedColumnName = "idSucursal")
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "idSucursal", referencedColumnName = "idSucursal", nullable = false, foreignKey = @ForeignKey(name = "FK_sucursal_factura"))
+	@JsonManagedReference
 	private Sucursal sucursal;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idCajero", referencedColumnName = "idEmpleado")
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "idCajero", referencedColumnName = "idEmpleado", nullable = false, foreignKey = @ForeignKey(name = "FK_empleadoCajero_factura"))
+	@JsonManagedReference
 	private Empleado cajero;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idVendedor", referencedColumnName = "idEmpleado")
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "idVendedor", referencedColumnName = "idEmpleado", nullable = false, foreignKey = @ForeignKey(name = "FK_empleadoVendedor_factura"))
+	@JsonManagedReference
 	private Empleado vendedor;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idCliente", referencedColumnName = "idPersona")
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "idCliente", referencedColumnName = "idPersona", nullable = false, foreignKey = @ForeignKey(name = "FK_persona_factura"))
+	@JsonManagedReference
 	private Persona cliente;
-	
-	@OneToMany(mappedBy = "factura", cascade = CascadeType.ALL)
-	private List<DetalleFactura> detalles = new ArrayList<>();
 	
 	
 	public Factura(){} 
@@ -125,6 +131,7 @@ public class Factura {
 	public void setCliente(Persona cliente) {
 		this.cliente = cliente;
 	}
+	
 
 	@Override
 	public int hashCode() {

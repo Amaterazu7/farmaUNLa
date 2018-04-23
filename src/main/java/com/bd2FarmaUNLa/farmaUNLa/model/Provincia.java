@@ -1,19 +1,10 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 
+
 @Entity
+@Table(name="provincia")
 public class Provincia {
 
 	@Id
@@ -22,10 +13,6 @@ public class Provincia {
 	private long idProvincia;
 	private int codigo;
 	private String nombre;
-	
-	@JsonManagedReference
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "provincia")
-	private List<Localidad> localidades = new ArrayList<>();
 	
 	
 	public Provincia(){} 
@@ -55,13 +42,6 @@ public class Provincia {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-	
-	public List<Localidad> getLocalidades() {
-		return localidades;
-	}
-	public void setLocalidades(List<Localidad> localidades) {
-		this.localidades = localidades;
 	}
 	
 	

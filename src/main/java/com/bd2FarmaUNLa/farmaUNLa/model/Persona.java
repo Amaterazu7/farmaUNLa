@@ -1,9 +1,8 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="persona")
@@ -21,16 +20,15 @@ public class Persona {
 	private String calle;
 	private String numero;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idLocalidad", referencedColumnName = "idLocalidad")
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "idLocalidad", referencedColumnName = "idLocalidad", nullable = false, foreignKey = @ForeignKey(name = "FK_localidad_persona"))
+	@JsonManagedReference
 	private Localidad localidad;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idObraSocial", referencedColumnName = "idObraSocial")
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JoinColumn(name = "idObraSocial", referencedColumnName = "idObraSocial", nullable = false, foreignKey = @ForeignKey(name = "FK_obraSocial_persona"))
+	@JsonManagedReference
 	private ObraSocial obraSocial;
-	
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-	private List<Factura> facturas = new ArrayList<>();
 	
 	
 	public Persona(){} 

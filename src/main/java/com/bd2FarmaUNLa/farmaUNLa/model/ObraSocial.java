@@ -1,13 +1,9 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name="obraSocial")
 public class ObraSocial {
 
 	@Id
@@ -63,6 +59,4 @@ public class ObraSocial {
 	public String toString() {
 		return "Customer [id=" + id + ", nombre=" + nombre +"]";
 	}
-	
-
 }

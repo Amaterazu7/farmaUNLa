@@ -1,8 +1,7 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
-import java.util.*;
-
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "producto")
@@ -17,11 +16,9 @@ public class Producto {
 	private long precio;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idTipoProducto", referencedColumnName = "idTipoProducto")
+	@JoinColumn(name = "idTipoProducto", referencedColumnName = "idTipoProducto", nullable = false, foreignKey = @ForeignKey(name = "FK_tipoProducto_producto"))
+	@JsonManagedReference
 	private TipoProducto tipoProducto;
-	
-	@OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
-	private List<DetalleFactura> detalles = new ArrayList<>();
 	
 	
 	public Producto(){} 
@@ -70,13 +67,6 @@ public class Producto {
 		this.tipoProducto = tipoProducto;
 	}
 		
-	public List<DetalleFactura> getDetalles() {
-		return detalles;
-	}
-	public void setDetalles(List<DetalleFactura> detalles) {
-		this.detalles = detalles;
-	}
-
 	
 	@Override
 	public int hashCode() {

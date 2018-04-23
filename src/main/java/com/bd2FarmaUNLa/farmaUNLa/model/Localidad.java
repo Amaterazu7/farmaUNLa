@@ -1,18 +1,11 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
+@Table(name="localidad")
 public class Localidad {
 
 	@Id
@@ -22,11 +15,11 @@ public class Localidad {
 	private String nombre;
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-	@JoinColumn(name = "idProvincia", referencedColumnName = "idProvincia")
-	@JsonBackReference
+	@JoinColumn(name = "idProvincia", referencedColumnName = "idProvincia", nullable = false, foreignKey = @ForeignKey(name = "FK_provincia_localidad"))
+	@JsonManagedReference
 	private Provincia provincia;
-	
-	
+
+
 	public Localidad(){} 
 	
 	public Localidad(long idLocalidad, String nombre, Provincia provincia) {

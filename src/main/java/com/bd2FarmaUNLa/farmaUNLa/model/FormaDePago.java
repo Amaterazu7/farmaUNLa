@@ -1,13 +1,9 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name="formaDePago")
 public class FormaDePago {
 
 	@Id
@@ -15,9 +11,6 @@ public class FormaDePago {
 	@Column(name = "idFormaDePago")
 	private long idFormaDePago;
 	private String descripcion;
-	
-	@OneToMany(mappedBy = "formaDePago", cascade = CascadeType.ALL)
-	private List<Factura> facturas = new ArrayList<>();
 	
 	
 	public FormaDePago(){} 
@@ -42,14 +35,6 @@ public class FormaDePago {
 		this.descripcion = descripcion;
 	}
 
-	public List<Factura> getFacturas() {
-		return facturas;
-	}
-	public void setFacturas(List<Factura> facturas) {
-		this.facturas = facturas;
-	}
-
-
 
 	@Override
 	public int hashCode() {
@@ -73,8 +58,7 @@ public class FormaDePago {
 	}
 	@Override
 	public String toString() {
-		return "FormaDePago [idFormaDePago=" + idFormaDePago + ", descripcion=" + descripcion + ", facturas=" + facturas
-				+ "]";
+		return "FormaDePago [idFormaDePago=" + idFormaDePago + ", descripcion=" + descripcion + "]";
 	}
 	
 	
