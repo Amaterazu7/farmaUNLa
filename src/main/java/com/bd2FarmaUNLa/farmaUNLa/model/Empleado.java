@@ -23,14 +23,15 @@ public class Empleado extends Persona {
 	private Sucursal sucursal;
 	
 	@OneToMany(mappedBy = "cajero", fetch=FetchType.EAGER)
-	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idEmpleado")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idPersona")
 	@JsonIdentityReference(alwaysAsId = true)
 	private Set<Factura> cFacturas;
 	
 	@OneToMany(mappedBy = "vendedor", fetch=FetchType.EAGER)
-	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idEmpleado")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idPersona")
 	@JsonIdentityReference(alwaysAsId = true)
 	private Set<Factura> vFacturas;
+	
 	
 	
 	public Empleado(){} 

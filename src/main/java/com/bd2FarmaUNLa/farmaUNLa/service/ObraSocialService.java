@@ -6,7 +6,7 @@ import com.bd2FarmaUNLa.farmaUNLa.model.ObraSocial;
 
 public interface ObraSocialService {
 	
-	ObraSocial findById(long id);
+	ObraSocial findByIdObraSocial(long id);
 	
 	void saveObraSocial(ObraSocial obraSocial);
 	

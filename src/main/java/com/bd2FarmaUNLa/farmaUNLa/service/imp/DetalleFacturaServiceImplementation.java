@@ -26,6 +26,11 @@ public class DetalleFacturaServiceImplementation implements DetalleFacturaServic
 	public List<DetalleFactura> findAllDetallesFacturas() {
 		return (List<DetalleFactura>) detalleFacturaRepository.findAll();
 	}
+	
+	@Override
+	public List<DetalleFactura> findAllCadenasDetallesFacturas() {
+		return (List<DetalleFactura>) detalleFacturaRepository.findAllCadenaDetalleFacturas();
+	}
 		
 	@Override
 	public DetalleFactura findById(long id) {

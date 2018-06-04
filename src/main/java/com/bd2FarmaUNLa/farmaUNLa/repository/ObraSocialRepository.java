@@ -5,5 +5,5 @@ import com.bd2FarmaUNLa.farmaUNLa.model.ObraSocial;
 
 public interface ObraSocialRepository extends CrudRepository<ObraSocial, Long> {
 
-	ObraSocial findById(long id);
+	ObraSocial findByIdObraSocial(long idObraSocial);
 }

@@ -37,13 +37,13 @@ public class Factura {
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idCajero", referencedColumnName = "idEmpleado", nullable = false, foreignKey = @ForeignKey(name = "FK_empleadoCajero_factura"))
-	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idEmpleado")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idPersona")
 	@JsonIdentityReference(alwaysAsId = true)
 	private Empleado cajero;
 	
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idVendedor", referencedColumnName = "idEmpleado", nullable = false, foreignKey = @ForeignKey(name = "FK_empleadoVendedor_factura"))
-	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idEmpleado")
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idPersona")
 	@JsonIdentityReference(alwaysAsId = true)
 	private Empleado vendedor;
 	

@@ -143,7 +143,7 @@ public class Persona {
 	}
 	@Override
 	public String toString() {
-		return "Customer [idPersona=" + idPersona  + ", dni=" + dni  + ", numAfiliado=" + numAfiliado  + ", apellido=" + apellido  + ", nombre=" + nombre  + ", calle=" + calle  + ", numero=" + numero + ", localidad=" + localidad.getIdLocalidad() +", obraSocial=" + obraSocial.getId()  + "]";
+		return "Customer [idPersona=" + idPersona  + ", dni=" + dni  + ", numAfiliado=" + numAfiliado  + ", apellido=" + apellido  + ", nombre=" + nombre  + ", calle=" + calle  + ", numero=" + numero + ", localidad=" + localidad.getIdLocalidad() +", obraSocial=" + obraSocial.getIdObraSocial()  + "]";
 	}
 	
 

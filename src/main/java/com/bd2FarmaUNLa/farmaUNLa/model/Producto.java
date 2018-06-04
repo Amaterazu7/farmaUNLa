@@ -1,5 +1,7 @@
 package com.bd2FarmaUNLa.farmaUNLa.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -23,6 +25,11 @@ public class Producto {
 	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idTipoProducto")
 	@JsonIdentityReference(alwaysAsId = true)
 	private TipoProducto tipoProducto;
+	
+	@OneToMany(mappedBy = "producto", fetch=FetchType.EAGER)
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idProducto")
+	@JsonIdentityReference(alwaysAsId = true)
+	private Set<DetalleFactura> detallesFacturas;
 	
 	
 	public Producto(){} 

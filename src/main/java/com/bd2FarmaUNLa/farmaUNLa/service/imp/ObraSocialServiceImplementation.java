@@ -28,8 +28,8 @@ public class ObraSocialServiceImplementation implements ObraSocialService {
 	}
 		
 	@Override
-	public ObraSocial findById(long id) {
-		return obraSocialRepository.findById(id);
+	public ObraSocial findByIdObraSocial(long id) {
+		return obraSocialRepository.findByIdObraSocial(id);
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class ObraSocialServiceImplementation implements ObraSocialService {
 
 	@Override
 	public boolean isObraSocialExist(ObraSocial obraSocial) {
-		return findById(obraSocial.getId())!=null;
+		return findByIdObraSocial(obraSocial.getIdObraSocial())!=null;
 	}
 	
 	@Override

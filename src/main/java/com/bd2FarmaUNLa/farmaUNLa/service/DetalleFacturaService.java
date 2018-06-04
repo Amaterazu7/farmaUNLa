@@ -16,6 +16,8 @@ public interface DetalleFacturaService {
 
 	List<DetalleFactura> findAllDetallesFacturas(); 
 	
+	List<DetalleFactura> findAllCadenasDetallesFacturas();
+	
 	void deleteAllDetallesFacturas();
 	
 	public boolean isDetalleFacturaExist(DetalleFactura detalleFactura);
