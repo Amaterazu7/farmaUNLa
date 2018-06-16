@@ -26,11 +26,6 @@ public class DetalleFacturaServiceImplementation implements DetalleFacturaServic
 	public List<DetalleFactura> findAllDetallesFacturas() {
 		return (List<DetalleFactura>) detalleFacturaRepository.findAll();
 	}
-	
-	@Override
-	public List<DetalleFactura> findAllCadenasDetallesFacturas() {
-		return (List<DetalleFactura>) detalleFacturaRepository.findAllCadenaDetalleFacturas();
-	}
 		
 	@Override
 	public DetalleFactura findById(long id) {
@@ -61,5 +56,87 @@ public class DetalleFacturaServiceImplementation implements DetalleFacturaServic
 	public void deleteAllDetallesFacturas() {
 		detalleFacturaRepository.deleteAll();
 	}
+	/*
+	@Override
+	public List<DetalleFactura> findAllCadenasDetallesFacturas() {
+		return (List<DetalleFactura>) detalleFacturaRepository.findAllCadenaDetalleFacturas();
+	}
+	*/
+	
+	@Override
+	public List<DetalleFactura> totalVentaCadena() {
+		return (List<DetalleFactura>) detalleFacturaRepository.totalVentaCadena();
+	}
+	
+	@Override
+	public List<DetalleFactura> totalVentaSucursal() {
+		return (List<DetalleFactura>) detalleFacturaRepository.totalVentaSucursal();
+	}
+	
+	@Override
+	public List<DetalleFactura> totalVentaCadenaObrasocial() {
+		return (List<DetalleFactura>) detalleFacturaRepository.totalVentaCadenaObrasocial();
+	}
+	
+	@Override
+	public List<DetalleFactura> totalVentaSucursalObrasocial() {
+		return (List<DetalleFactura>) detalleFacturaRepository.totalVentaSucursalObrasocial();
+	}
+	
+	@Override
+	public List<DetalleFactura> totalCobranzaMPCadena() {
+		return (List<DetalleFactura>) detalleFacturaRepository.totalCobranzaMPCadena();
+	}
+	
+	@Override
+	public List<DetalleFactura> totalVentaProductoCadena() {
+		return (List<DetalleFactura>) detalleFacturaRepository.totalVentaProductoCadena();
+	}
+	
+	@Override
+	public List<DetalleFactura> totalVentaProductoSucursal() {
+		return (List<DetalleFactura>) detalleFacturaRepository.totalVentaProductoSucursal();
+	}
+	
+	@Override
+	public List<DetalleFactura> rankingVentaCadenaMonto() {
+		return (List<DetalleFactura>) detalleFacturaRepository.rankingVentaCadenaMonto();
+	}
+	
+	@Override
+	public List<DetalleFactura> rankingVentaSucursalMonto() {
+		return (List<DetalleFactura>) detalleFacturaRepository.rankingVentaSucursalMonto();
+	}
+	
+	@Override
+	public List<DetalleFactura> rankingVentaCadenaCant() {
+		return (List<DetalleFactura>) detalleFacturaRepository.rankingVentaCadenaCant();
+	}
+	
+	@Override
+	public List<DetalleFactura> rankingVentaSucursalCant() {
+		return (List<DetalleFactura>) detalleFacturaRepository.rankingVentaSucursalCant();
+	}
+	
+	@Override
+	public List<DetalleFactura> rankingClienteCadenaMonto() {
+		return (List<DetalleFactura>) detalleFacturaRepository.rankingClienteCadenaMonto();
+	}
+	
+	@Override
+	public List<DetalleFactura> rankingClienteSucursalMonto() {
+		return (List<DetalleFactura>) detalleFacturaRepository.rankingClienteSucursalMonto();
+	}
+	
+	@Override
+	public List<DetalleFactura> rankingClienteCadenaCant() {
+		return (List<DetalleFactura>) detalleFacturaRepository.rankingClienteCadenaCant();
+	}
+
+	@Override
+	public List<DetalleFactura> rankingClienteSucursalCant() {
+		return (List<DetalleFactura>) detalleFacturaRepository.rankingClienteSucursalCant();
+	}
+	
 
 }

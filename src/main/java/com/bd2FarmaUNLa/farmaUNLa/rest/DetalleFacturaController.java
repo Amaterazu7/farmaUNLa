@@ -37,7 +37,7 @@ public class DetalleFacturaController {
 	    //-------------------Retrieve All--------------------------------------------------------
 	     
 	    @RequestMapping(value = "/detalleFactura/", method = RequestMethod.GET)
-	    public ResponseEntity<List<DetalleFactura>> listAllDetallesFacturas() {
+	    public ResponseEntity<List<DetalleFactura>> listAllDetalleFacturas() {
 	        List<DetalleFactura> detallesFacturas = detalleFacturaService.findAllDetallesFacturas();
 	        if(detallesFacturas.isEmpty()){
 	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
@@ -135,4 +135,210 @@ public class DetalleFacturaController {
 	        detalleFacturaService.deleteAllDetallesFacturas();
 	        return new ResponseEntity<DetalleFactura>(HttpStatus.NO_CONTENT);
 	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	    /*
+	    @RequestMapping(value = "/detallesFactura/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> listAllDetallesFacturas() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.findAllDetallesFacturas();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    */
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/totalVentaCadena/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> totalVentaCadena() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.totalVentaCadena();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/totalVentaSucursal/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> totalVentaSucursal() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.totalVentaSucursal();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/totalVentaCadenaObrasocial/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> totalVentaCadenaObrasocial() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.totalVentaCadenaObrasocial();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/totalVentaSucursalObrasocial/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> totalVentaSucursalObrasocial() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.totalVentaSucursalObrasocial();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/totalCobranzaMPCadena/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> totalCobranzaMPCadena() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.totalCobranzaMPCadena();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/totalCobranzaMPSucursal/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> totalCobranzaMPSucursal() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.totalCobranzaMPCadena();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/totalVentaProductoCadena/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> totalVentaProductoCadena() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.totalVentaProductoCadena();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/totalVentaProductoSucursal/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> totalVentaProductoSucursal() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.totalVentaProductoSucursal();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/rankingVentaCadenaMonto/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> rankingVentaCadenaMonto() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.rankingVentaCadenaMonto();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/rankingVentaSucursalMonto/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> rankingVentaSucursalMonto() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.rankingVentaSucursalMonto();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/rankingVentaCadenaCant/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> rankingVentaCadenaCant() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.rankingVentaCadenaCant();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/rankingVentaSucursalCant/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> rankingVentaSucursalCant() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.rankingVentaSucursalCant();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/rankingClienteCadenaMonto/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> rankingClienteCadenaMonto() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.rankingClienteCadenaMonto();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/rankingClienteSucursalMonto/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> rankingClienteSucursalMonto() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.rankingClienteSucursalMonto();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+	     
+	    @RequestMapping(value = "/detalleFactura/rankingClienteCadenaCant/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> rankingClienteCadenaCant() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.rankingClienteCadenaCant();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
+	    //-------------------Retrieve All--------------------------------------------------------
+ 
+	    @RequestMapping(value = "/detalleFactura/rankingClienteSucursalCant/", method = RequestMethod.GET)
+	    public ResponseEntity<List<DetalleFactura>> rankingClienteSucursalCant() {
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.rankingClienteSucursalCant();
+	        if(detallesFacturas.isEmpty()){
+	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
+	        }
+	        return new ResponseEntity<List<DetalleFactura>>(detallesFacturas, HttpStatus.OK);
+	    }
+	    
+	    
 }

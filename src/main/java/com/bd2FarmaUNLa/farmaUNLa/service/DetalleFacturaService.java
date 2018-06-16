@@ -16,10 +16,42 @@ public interface DetalleFacturaService {
 
 	List<DetalleFactura> findAllDetallesFacturas(); 
 	
-	List<DetalleFactura> findAllCadenasDetallesFacturas();
-	
 	void deleteAllDetallesFacturas();
 	
 	public boolean isDetalleFacturaExist(DetalleFactura detalleFactura);
+	
+	/*
+	List<DetalleFactura> findAllCadenasDetallesFacturas();
+	*/
+	
+	List<DetalleFactura> totalVentaCadena();
+
+	List<DetalleFactura> totalVentaSucursal();
+	
+	List<DetalleFactura> totalVentaCadenaObrasocial();
+	
+	List<DetalleFactura> totalVentaSucursalObrasocial();
+	
+	List<DetalleFactura> totalCobranzaMPCadena();
+	
+	List<DetalleFactura> totalVentaProductoCadena();
+	
+	List<DetalleFactura> totalVentaProductoSucursal();
+	
+	List<DetalleFactura> rankingVentaCadenaMonto();
+	
+	List<DetalleFactura> rankingVentaSucursalMonto();
+	
+	List<DetalleFactura> rankingVentaCadenaCant();
+	
+	List<DetalleFactura> rankingVentaSucursalCant();
+	
+	List<DetalleFactura> rankingClienteCadenaMonto();
+	
+	List<DetalleFactura> rankingClienteSucursalMonto();
+	
+	List<DetalleFactura> rankingClienteCadenaCant();
+	
+	List<DetalleFactura> rankingClienteSucursalCant();
 }
 

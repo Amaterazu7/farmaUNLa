@@ -20,13 +20,6 @@ public class DetalleFacturaTests {
 
 	@Test
 	public void contextLoads() {
-		DetalleFacturaService dfs = new DetalleFacturaServiceImplementation();
-		
-		for(DetalleFactura df: dfs.findAllCadenasDetallesFacturas()) {
-			System.out.println(df);
-		}
-		
 		
 	}
-
 }

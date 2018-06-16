@@ -33,13 +33,13 @@
 							<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/empleado">Empleados</a>
+							<a class="nav-link" href="/factura/">Facturas</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/sucursal">Sucursales</a>
+							<a class="nav-link" href="/empleado/">Empleados</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/factura">Facturas</a>
+							<a class="nav-link" href="/sucursal/">Sucursales</a>
 						</li>
 					</ul>
 					<form class="form-inline my-2 my-lg-0">
