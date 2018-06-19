@@ -19,12 +19,12 @@
     	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	</head>
   	<body ng-app="myApp" class="ng-cloak">
-      <div class="generic-container" ng-controller="TVSDetalleFacturaController as ctrl">
+      <div class="generic-container" ng-controller="RPCDetalleFacturaController as ctrl">
       
           <div class="panel panel-default">
                 <!-- Default panel contents -->
               <div class="panel-heading">
-              	<h2>Lista Total Venta Sucursal</h2>
+              	<h2>Lista Ranking Venta Producto Cadena</h2>
               </div>
               <div class="tablecontainer">
                   <table class="table table-striped table-hover table-bordered">
@@ -33,17 +33,13 @@
                           		<th>ID</th>
                             	<th>Producto</th>
                             	<th>Cantidad Total</th>
-                            	<th>Fecha</th>
-                            	<th>Localidad</th>
                        		</tr>
 						</thead>
 						<tbody>
-                          	<tr ng-repeat="df in ctrl.tvsDetalleFacturas">
+                          	<tr ng-repeat="df in ctrl.rpcDetalleFacturas">
 								<td><span ng-bind="df.idproducto"></span></td>
 								<td><span ng-bind="df.producto"></span></td>
 								<td><span ng-bind="df.cantidadTotal"></span></td>
-								<td><span ng-bind="df.fecha"></span></td>
-								<td><span ng-bind="df.localidad"></span></td>
                         	</tr>
                       	</tbody>
                   	</table>
@@ -54,6 +50,6 @@
       	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
       	<script src="<c:url value='js/app.js' />"></script>
       	<script src="<c:url value='js/service/detalleFactura_service.js' />"></script>
-      	<script src="<c:url value='js/controller/totalVentasSucursalDetalleFactura_controller.js' />"></script>
+      	<script src="<c:url value='js/controller/rankingVentaProductoCadenaDetalleFactura_controller.js' />"></script>
 	</body>
 </html>

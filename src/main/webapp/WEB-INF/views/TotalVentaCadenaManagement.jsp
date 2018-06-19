@@ -30,12 +30,14 @@
                   <table class="table table-striped table-hover table-bordered">
                       <thead class="thead-dark">
                           	<tr>
+                          		<th>ID</th>
                             	<th>Producto</th>
                             	<th>Cantidad Total</th>
                        		</tr>
 						</thead>
 						<tbody>
                           	<tr ng-repeat="df in ctrl.tvcDetalleFacturas">
+								<td><span ng-bind="df.idproducto"></span></td>
 								<td><span ng-bind="df.producto"></span></td>
 								<td><span ng-bind="df.cantidadTotal"></span></td>
                         	</tr>

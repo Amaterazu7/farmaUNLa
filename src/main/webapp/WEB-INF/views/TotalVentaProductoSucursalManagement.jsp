@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+2<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 	<head>  
@@ -19,31 +19,27 @@
     	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	</head>
   	<body ng-app="myApp" class="ng-cloak">
-      <div class="generic-container" ng-controller="TVSDetalleFacturaController as ctrl">
+      <div class="generic-container" ng-controller="TVPSDetalleFacturaController as ctrl">
       
           <div class="panel panel-default">
                 <!-- Default panel contents -->
               <div class="panel-heading">
-              	<h2>Lista Total Venta Sucursal</h2>
+              	<h2>Lista Total Venta Producto Sucursal</h2>
               </div>
               <div class="tablecontainer">
                   <table class="table table-striped table-hover table-bordered">
                       <thead class="thead-dark">
                           	<tr>
-                          		<th>ID</th>
-                            	<th>Producto</th>
-                            	<th>Cantidad Total</th>
-                            	<th>Fecha</th>
-                            	<th>Localidad</th>
+                          		<th>Cantidad Total</th>
+                            	<th>Venta Total</th>
+                            	<th>Tipo Producto</th>
                        		</tr>
 						</thead>
 						<tbody>
-                          	<tr ng-repeat="df in ctrl.tvsDetalleFacturas">
-								<td><span ng-bind="df.idproducto"></span></td>
-								<td><span ng-bind="df.producto"></span></td>
+                          	<tr ng-repeat="df in ctrl.tvpsDetalleFacturas">
 								<td><span ng-bind="df.cantidadTotal"></span></td>
-								<td><span ng-bind="df.fecha"></span></td>
-								<td><span ng-bind="df.localidad"></span></td>
+								<td><span ng-bind="df.ventaTotal"></span></td>
+								<td><span ng-bind="df.tipoProducto"></span></td>
                         	</tr>
                       	</tbody>
                   	</table>
@@ -54,6 +50,6 @@
       	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
       	<script src="<c:url value='js/app.js' />"></script>
       	<script src="<c:url value='js/service/detalleFactura_service.js' />"></script>
-      	<script src="<c:url value='js/controller/totalVentasSucursalDetalleFactura_controller.js' />"></script>
+      	<script src="<c:url value='js/controller/totalVentasProductoSucursalDetalleFactura_controller.js' />"></script>
 	</body>
 </html>

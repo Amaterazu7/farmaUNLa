@@ -149,7 +149,7 @@ public class DetalleFacturaController {
 	    }
 	    
 	    */
-	    //-------------------Retrieve All--------------------------------------------------------
+	    //-1------------------Retrieve All--------------------------------------------------------
 	     
 	    @RequestMapping(value = "/detalleFactura/totalVentaCadena/", method = RequestMethod.GET)
 	    public ResponseEntity<List<DetalleFactura>> totalVentaCadena() {
@@ -161,7 +161,7 @@ public class DetalleFacturaController {
 	    }
 	    
 	    
-	    //-------------------Retrieve All--------------------------------------------------------
+	    //-1------------------Retrieve All--------------------------------------------------------
 	     
 	    @RequestMapping(value = "/detalleFactura/totalVentaSucursal/", method = RequestMethod.GET)
 	    public ResponseEntity<List<DetalleFactura>> totalVentaSucursal() {
@@ -173,7 +173,7 @@ public class DetalleFacturaController {
 	    }
 	    
 	    
-	    //-------------------Retrieve All--------------------------------------------------------
+	    //-2------------------Retrieve All--------------------------------------------------------
 	     
 	    @RequestMapping(value = "/detalleFactura/totalVentaCadenaObrasocial/", method = RequestMethod.GET)
 	    public ResponseEntity<List<DetalleFactura>> totalVentaCadenaObrasocial() {
@@ -185,7 +185,7 @@ public class DetalleFacturaController {
 	    }
 	    
 	    
-	    //-------------------Retrieve All--------------------------------------------------------
+	    //-2------------------Retrieve All--------------------------------------------------------
 	     
 	    @RequestMapping(value = "/detalleFactura/totalVentaSucursalObrasocial/", method = RequestMethod.GET)
 	    public ResponseEntity<List<DetalleFactura>> totalVentaSucursalObrasocial() {

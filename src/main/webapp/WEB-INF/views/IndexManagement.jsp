@@ -9,18 +9,21 @@
 		<meta name="viewport" content="width=device-width"/>
 		<base href="/"/>
     	<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css"> 
+    	<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.css"> 
+    	<link rel="stylesheet" href="https://bootswatch.com/4/lux/_variables.scss"> 
+    	<link rel="stylesheet" href="https://bootswatch.com/4/lux/_bootswatch.scss"> 
 		<!--
 		<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+		<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
 		-->
-		<link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
 	    <link href="<c:url value='css/app.css' />" rel="stylesheet"></link>
 	    <link href="<c:url value='css/style.css' />" rel="stylesheet"></link>
-	    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="/bootstrap/js/jquery.min.js"></script>
+    	<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
   	</head>
   	<body ng-app="myApp" class="ng-cloak">
-    	<div class="" ng-controller="UserController as ctrl">
-          
+    	<!-- <div class="" ng-controller="UserController as ctrl">  -->
+          <div class="" >
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 				<a class="navbar-brand" href="#">FarmaUNLa</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,22 +35,20 @@
 						<li class="nav-item active">
 							<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 						</li>
-						
-						<!-- 
-							<a class="dropdown-item" href="/detalleFactura/totalVentaSucursal">Total Venta Sucursal</a>
-					    	<a class="dropdown-item" href="/detalleFactura/totalVentaCadena">Total Venta Cadena</a>
-						 -->
 						<li class="nav-item">
-							<a class="nav-link" href="">Detalle Factura</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/factura/">Facturas</a>
+							<a class="nav-link" href="/factura/">Facturacion</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/empleado/">Empleados</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/sucursal/">Sucursales</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/persona/">Personas</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/producto/">Productos</a>
 						</li>
 					</ul>
 					<form class="form-inline my-2 my-lg-0">
@@ -58,10 +59,44 @@
 			</nav>          
 
       	</div>
-      
+		<div class="jumbotron">
+			<h1 class="display-3">Bienvenido!</h1>
+		  		<p class="lead"></p>
+		  		<hr class="my-4">
+         	<div class="list-group">
+		  		<a href="/detalleFactura" class="list-group-item list-group-item-action active">
+		    		Detalles de Facturas
+		  		</a>
+		  		
+		  		<a href="/detalleFactura/totalVentaCadena" class="list-group-item list-group-item-action disabled">Total Venta Cadena</a>
+		  		<a href="/detalleFactura/totalVentaSucursal" class="list-group-item list-group-item-action">Total Venta Sucursal</a>
+		  		<a href="/detalleFactura/totalVentaCadenaObrasocial" class="list-group-item list-group-item-action">Total Venta Cadena Obra Social</a>
+		  		<a href="/detalleFactura/totalVentaSucursalObrasocial" class="list-group-item list-group-item-action disabled">Total Venta Sucursal Obra Social</a>
+		  		<a href="/detalleFactura/totalCobranzaMPCadena" class="list-group-item list-group-item-action">Total Cobranza Medio de Pago Cadena</a>
+		  		<a href="/detalleFactura/totalCobranzaMPSucursal" class="list-group-item list-group-item-action disabled">Total Cobranza Medio de Pago Sucursal</a>
+		  		<a href="/detalleFactura/totalVentaProductoCadena" class="list-group-item list-group-item-action">Total Venta Producto Cadena</a>
+		  		<a href="/detalleFactura/totalVentaProductoSucursal" class="list-group-item list-group-item-action disabled">Total Venta Producto Sucursal</a>
+		  		<a href="/detalleFactura/rankingVentaCadenaMonto" class="list-group-item list-group-item-action">Ranking Venta Cadena Monto</a>
+		  		<a href="/detalleFactura/rankingVentaSucursalMonto" class="list-group-item list-group-item-action disabled">Ranking Venta Cadena Monto</a>
+		  		<a href="/detalleFactura/rankingVentaCadenaCant" class="list-group-item list-group-item-action">Ranking Venta Producto Cadena Cant</a>
+		  		<a href="/detalleFactura/rankingVentaSucursalCant" class="list-group-item list-group-item-action disabled">Ranking Venta Producto Sucursal Cant</a>
+		  		<a href="/detalleFactura/rankingClienteCadenaMonto" class="list-group-item list-group-item-action">Ranking Cliente Cadena Monto</a>
+		  		<a href="/detalleFactura/rankingClienteSucursalMonto" class="list-group-item list-group-item-action disabled">Ranking Cliente Sucursal Monto</a>
+		  		
+		  		
+		  		<a href="/detalleFactura/totalVentaSucursal" class="list-group-item list-group-item-action">Total Venta Sucursal</a>
+		  		<a href="/detalleFactura/totalVentaCadena" class="list-group-item list-group-item-action disabled">Total Venta Cadena</a>
+			</div>
+        	<p></p>
+		</div>
+		
+		
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
 		<script src="<c:url value='js/app.js' />"></script>
+		<!-- 
 		<script src="<c:url value='js/service/user_service.js' />"></script>
 		<script src="<c:url value='js/controller/user_controller.js' />"></script>
+		  -->
 	</body>
 </html>

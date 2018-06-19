@@ -58,19 +58,66 @@ public class IndexController {
 	public String getTipoProductoPage(){
 		return "TipoProductoManagement";
 	}
+	
 
 	@RequestMapping("/detalleFactura")
 	public String getDetalleFacturaPage(){
 		return "DetalleFacturaManagement";
 	}
-
 	@RequestMapping("/detalleFactura/totalVentaSucursal")
 	public String getTotalVentaSucursalPage(){
 		return "TotalVentaSucursalManagement";
 	}
-
 	@RequestMapping("/detalleFactura/totalVentaCadena")
 	public String getTotalVentaCadenaPage(){
 		return "TotalVentaCadenaManagement";
+	}
+	@RequestMapping("/detalleFactura/totalVentaCadenaObrasocial")
+	public String getTotalVentaCadenaObrasocialPage(){
+		return "TotalVentaCadenaObrasocialManagement";
+	}
+	@RequestMapping("/detalleFactura/totalVentaSucursalObrasocial")
+	public String getTotalVentaSucursalObrasocialPage(){
+		return "TotalVentaSucursalObrasocialManagement";
+	}
+	@RequestMapping("/detalleFactura/totalCobranzaMPCadena")
+	public String getTotalCobranzaMPCadenaPage(){
+		return "TotalCobranzaMPCadenaManagement";
+	}
+	@RequestMapping("/detalleFactura/totalCobranzaMPSucursal")
+	public String getTotalCobranzaMPSucursalPage(){
+		return "TotalCobranzaMPSucursalManagement";
+	}
+	@RequestMapping("/detalleFactura/totalVentaProductoCadena")
+	public String getTotalVentaProductoCadenaPage(){
+		return "TotalVentaProductoCadenaManagement";
+	}
+	@RequestMapping("/detalleFactura/totalVentaProductoSucursal")
+	public String getTotalVentaProductoSucursalPage(){
+		return "TotalVentaProductoSucursalManagement";
+	}
+	@RequestMapping("/detalleFactura/rankingVentaCadenaMonto")
+	public String getRankingVentaCadenaMontoPage(){
+		return "RankingVentaCadenaMontoManagement";
+	}
+	@RequestMapping("/detalleFactura/rankingVentaSucursalMonto")
+	public String getRankingVentaSucursalMontoPage(){
+		return "RankingVentaSucursalMontoManagement";
+	}
+	@RequestMapping("/detalleFactura/rankingVentaCadenaCant")
+	public String getRankingVentaCadenaCantPage(){
+		return "RankingVentaProductoCadenaManagement";
+	}
+	@RequestMapping("/detalleFactura/rankingVentaSucursalCant")
+	public String getRankingVentaSucursalCantPage(){
+		return "RankingVentaProductoSucursalManagement";
+	}
+	@RequestMapping("/detalleFactura/rankingClienteCadenaMonto")
+	public String getRankingClienteMontoCadenaPage(){
+		return "RankingClienteMontoCadenaManagement";
+	}
+	@RequestMapping("/detalleFactura/rankingClienteSucursalMonto")
+	public String getRankingClienteMontoSucursalPage(){
+		return "RankingClienteMontoSucursalManagement";
 	}
 }
