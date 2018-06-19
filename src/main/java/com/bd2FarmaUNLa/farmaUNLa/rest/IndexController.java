@@ -120,4 +120,12 @@ public class IndexController {
 	public String getRankingClienteMontoSucursalPage(){
 		return "RankingClienteMontoSucursalManagement";
 	}
+	@RequestMapping("/detalleFactura/rankingClienteCadenaCant")
+	public String getRankingClienteCadenaCantPage(){
+		return "RankingClienteCadenaCantManagement";
+	}
+	@RequestMapping("/detalleFactura/rankingClienteSucursalCant")
+	public String getRankingClienteSucursalCantPage(){
+		return "RankingClienteSucursalCantManagement";
+	}
 }

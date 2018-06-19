@@ -19,12 +19,12 @@
     	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	</head>
   	<body ng-app="myApp" class="ng-cloak">
-      <div class="generic-container" ng-controller="RCMCDetalleFacturaController as ctrl">
+      <div class="generic-container" ng-controller="RCCDetalleFacturaController as ctrl">
       
           <div class="panel panel-default">
                 <!-- Default panel contents -->
               <div class="panel-heading">
-              	<h2>Lista Ranking Cliente Cadena Monto</h2>
+              	<h2>Lista Ranking Cliente Cadena Cantidad</h2>
               </div>
               <div class="tablecontainer">
                   <table class="table table-striped table-hover table-bordered">
@@ -32,14 +32,14 @@
                           	<tr>
                           		<th>ID</th>
                             	<th>Cliente	</th>
-                            	<th>Venta Total</th>
+                            	<th>Cantidad Total</th>
                        		</tr>
 						</thead>
 						<tbody>
-                          	<tr ng-repeat="df in ctrl.rcmcDetalleFacturas">
+                          	<tr ng-repeat="df in ctrl.rccDetalleFacturas">
 								<td><span ng-bind="df.idpersona"></span></td>
 								<td><span ng-bind="df.nombre"></span></td>
-								<td><span ng-bind="df.ventaTotal"></span></td>
+								<td><span ng-bind="df.cantidadTotal"></span></td>
                         	</tr>
                       	</tbody>
                   	</table>
@@ -50,6 +50,6 @@
       	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
       	<script src="<c:url value='js/app.js' />"></script>
       	<script src="<c:url value='js/service/detalleFactura_service.js' />"></script>
-      	<script src="<c:url value='js/controller/rankingClienteMontoCadenaDetalleFactura_controller.js' />"></script>
+      	<script src="<c:url value='js/controller/rankingClienteCadenaCantDetalleFactura_controller.js' />"></script>
 	</body>
 </html>

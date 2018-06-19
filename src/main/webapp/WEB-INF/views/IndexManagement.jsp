@@ -82,10 +82,8 @@
 		  		<a href="/detalleFactura/rankingVentaSucursalCant" class="list-group-item list-group-item-action disabled">Ranking Venta Producto Sucursal Cant</a>
 		  		<a href="/detalleFactura/rankingClienteCadenaMonto" class="list-group-item list-group-item-action">Ranking Cliente Cadena Monto</a>
 		  		<a href="/detalleFactura/rankingClienteSucursalMonto" class="list-group-item list-group-item-action disabled">Ranking Cliente Sucursal Monto</a>
-		  		
-		  		
-		  		<a href="/detalleFactura/totalVentaSucursal" class="list-group-item list-group-item-action">Total Venta Sucursal</a>
-		  		<a href="/detalleFactura/totalVentaCadena" class="list-group-item list-group-item-action disabled">Total Venta Cadena</a>
+		  		<a href="/detalleFactura/rankingClienteCadenaCant" class="list-group-item list-group-item-action">Ranking Cliente Cadena Cant</a>
+		  		<a href="/detalleFactura/rankingClienteSucursalCant" class="list-group-item list-group-item-action disabled">Ranking Cliente Sucursal Cant</a>
 			</div>
         	<p></p>
 		</div>

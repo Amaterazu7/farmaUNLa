@@ -360,6 +360,55 @@ App.factory('DetalleFacturaService', ['$http', '$q', function($http, $q){
 								}
 						);
 			},
+			rankingClienteCadenaCantDetalleFacturas: function() {
+				return $http.get('http://localhost:8080/detalleFactura/rankingClienteCadenaCant/')
+						.then(
+								function(response){
+									var consulTVPC = response.data;
+									var tvpc = [];
+									for(var i = 0; i < consulTVPC.length; i++) {
+									    var consul = consulTVPC[i];
+									    var consulta = new Object();
+									    consulta.idpersona = consul[0];
+										consulta.nombre = consul[1];
+									    consulta.cantidadTotal = consul[2];
+										
+										tvpc.push(consulta);
+									}
+									console.log(tvpc);
+									return tvpc;
+								}, 
+								function(errResponse){
+									console.error('Error while fetching rankingClienteCadena');
+									return $q.reject(errResponse);
+								}
+						);
+			},
+			rankingClienteSucursalCantDetalleFacturas: function() {
+				return $http.get('http://localhost:8080/detalleFactura/rankingClienteSucursalCant/')
+						.then(
+								function(response){
+									var consulTVPS = response.data;
+									var tvps = [];
+									for(var i = 0; i < consulTVPS.length; i++) {
+									    var consul = consulTVPS[i];
+									    var consulta = new Object();
+									    consulta.idpersona = consul[0];
+										consulta.nombre = consul[1];
+									    consulta.cantidadTotal = consul[2];
+									    consulta.calle = consul[3];
+										
+										tvps.push(consulta);
+									}
+									console.log(tvps);
+									return tvps;
+								}, 
+								function(errResponse){
+									console.error('Error while fetching rankingClienteSucursal');
+									return $q.reject(errResponse);
+								}
+						);
+			},
 			
 			
 			
