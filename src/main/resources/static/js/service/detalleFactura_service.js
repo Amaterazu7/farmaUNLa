@@ -67,7 +67,7 @@ App.factory('DetalleFacturaService', ['$http', '$q', function($http, $q){
 						);
 			},
 			totalVentaCadenaObraSocialDetalleFacturas: function() {
-				return $http.get('http://localhost:8080/detalleFactura/totalVentotalVentaProductoCadenaal/')
+				return $http.get('http://localhost:8080/detalleFactura/totalVentaCadenaObrasocial/')
 						.then(
 								function(response){
 									var consulTVCOS = response.data;
