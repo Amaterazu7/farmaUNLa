@@ -16,18 +16,18 @@ public interface DetalleFacturaRepository extends CrudRepository<DetalleFactura,
 	*/
 	
 /*1 total x cantidad cadena */
-	@Query("select prod.idProducto, sum(df.cantidad) as cantidadTotal from DetalleFactura as df "
+	@Query("select prod.descripcion, sum(df.cantidad) as cantidadTotal from DetalleFactura as df "
 			+ "inner join df.producto as prod inner join df.factura as fact where fact.fecha between '2018-05-03' and '2018-06-20' group by prod.idProducto")
 	List<DetalleFactura> totalVentaCadena();
 /*1 total x cantidad sucursal */
-	@Query("select prod.idProducto as producto, sum(df.cantidad) as cantidadTotal, fact.fecha as fecha, suc.calle as localidad from DetalleFactura as df "
+	@Query("select prod.descripcion as producto, sum(df.cantidad) as cantidadTotal, fact.fecha as fecha, suc.calle as localidad from DetalleFactura as df "
 			+ "inner join df.producto as prod inner join df.factura as fact inner join fact.sucursal as suc "
 			+ "where fact.fecha between '2018-05-03' and '2018-06-20' group by prod.idProducto, suc.idSucursal")
 	List<DetalleFactura> totalVentaSucursal();
 
 	
 /*2 total cantidad cadena x obra social */
-	@Query("select prod.idProducto, os.nombre, sum(df.cantidad) as cantidadTotal from DetalleFactura as df "
+	@Query("select prod.descripcion, os.nombre, sum(df.cantidad) as cantidadTotal from DetalleFactura as df "
 			+ "inner join df.producto as prod inner join df.factura as fact inner join fact.cliente as cli "
 			+ "inner join cli.obraSocial os "
 			+ "where fact.fecha between '2018-05-03' and '2018-06-20' group by prod.idProducto, os.idObraSocial")

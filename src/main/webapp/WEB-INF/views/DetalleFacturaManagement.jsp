@@ -75,7 +75,7 @@
           <div class="panel panel-default">
                 <!-- Default panel contents -->
               <div class="panel-heading">
-              	<h2>List of Facturas</h2>
+              	<h2>Lista de Detalle Factura</h2>
               </div>
               <div class="tablecontainer">
                   <table class="table table-striped table-hover table-bordered">
@@ -107,17 +107,6 @@
 								<td><span ng-bind="df.factura.vendedor"></span></td>
 								<td><span ng-bind="df.factura.cliente"></span></td>
 								<td><span ng-bind="df.factura.numero.descripcion"></span></td>
-					
-								<!-- 
-								<td>
-                            		<button type="button" ng-click="ctrl.edit(p.id)" class="btn btn-success custom-width">
-										<i class="fa fa-pencil-square-o f-2" aria-hidden="true"></i>
-									</button>
-									<button type="button" ng-click="ctrl.remove(p.id)" class="btn btn-danger custom-width">
-										<i class="fa fa-trash f-2" aria-hidden="true"></i>
-									</button>
-                            	</td>
-                            	-->
                         	</tr>
                       	</tbody>
                   	</table>

@@ -11,11 +11,6 @@ public class IndexController {
 		return "IndexManagement";
 	}
 	
-	@RequestMapping("/detalleFactura")
-	public String getDetalleFacturaPage(){
-		return "DetalleFacturaManagement";
-	}
-	
 	@RequestMapping("/empleado")
 	public String getEmpleadoPage(){
 		return "EmpleadoManagement";
@@ -62,5 +57,20 @@ public class IndexController {
 	@RequestMapping("/tipoProducto")
 	public String getTipoProductoPage(){
 		return "TipoProductoManagement";
+	}
+
+	@RequestMapping("/detalleFactura")
+	public String getDetalleFacturaPage(){
+		return "DetalleFacturaManagement";
+	}
+
+	@RequestMapping("/detalleFactura/totalVentaSucursal")
+	public String getTotalVentaSucursalPage(){
+		return "TotalVentaSucursalManagement";
+	}
+
+	@RequestMapping("/detalleFactura/totalVentaCadena")
+	public String getTotalVentaCadenaPage(){
+		return "TotalVentaCadenaManagement";
 	}
 }

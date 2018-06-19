@@ -2,7 +2,7 @@
 
 App.controller('DetalleFacturaController', ['$scope', 'DetalleFacturaService', function($scope, DetalleFacturaService) {
           var self = this;
-          self.detalleFactura={id:null,price:'',number:'',profile:''};
+          //self.detalleFactura={id:null,price:'',number:'',profile:''};
           self.detalleFacturas=[];
               
           self.fetchAllDetalleFacturas = function(){
@@ -16,22 +16,7 @@ App.controller('DetalleFacturaController', ['$scope', 'DetalleFacturaService', f
             					}
       			       );
           };
-           
-          self.totalVentasSucursalDetalleFacturas = function(){
-              DetalleFacturaService.totalVentasSucursalDetalleFacturas()
-                  .then(
-      					       function(d) {
-      						        self.detalleFacturas = d;
-      					       },
-            					function(errResponse){
-            						console.error('Error while fetching Currencies');
-            					}
-      			       );
-          };
-          
-          
-          
-          
+                 
           self.createDetalleFactura = function(detalleFactura){
               DetalleFacturaService.createDetalleFactura(detalleFactura)
 		              .then(

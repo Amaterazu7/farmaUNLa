@@ -32,6 +32,14 @@
 						<li class="nav-item active">
 							<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 						</li>
+						
+						<!-- 
+							<a class="dropdown-item" href="/detalleFactura/totalVentaSucursal">Total Venta Sucursal</a>
+					    	<a class="dropdown-item" href="/detalleFactura/totalVentaCadena">Total Venta Cadena</a>
+						 -->
+						<li class="nav-item">
+							<a class="nav-link" href="">Detalle Factura</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/factura/">Facturas</a>
 						</li>
