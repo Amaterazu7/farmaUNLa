@@ -8,7 +8,7 @@ Las siguientes instrucciones te permitirán levantar el proyecto desarrollado en
 
 ![-DER](http://github.com/Amaterazu7/farmaUNLa/blob/ac043b3eb9b53f88234ef3810f04e6081b142b08/DER.png)
 
-![-Script con Set de Datos](http://github.com/Amaterazu7/farmaUNLa/blob/ac043b3eb9b53f88234ef3810f04e6081b142b08/ExportBase-21-06-2018.sql)
+![-Script con Set de Datos](http://github.com/Amaterazu7/farmaUNLa/ExportBase-21-06-2018.sql)
 
 ### Prerequisitos
 
@@ -26,10 +26,12 @@ Para poder levantar la API será necesario tener instalado un entorno de desarro
 
 - 2: Importar el proyecto desde tu eclipse desde la carpeta descargada, y configurar el archivo "application.properties" acorde a tus credenciales de base de datos. (username & password)
 
-- 3: Para correr el proyecto, teniendo la herramienta que nos provee Pivotal, Spring Tools Suit deberías correr el proyecto desde el **Boot Dashboard** como se ve [aquí](http://github.com/Amaterazu7/farmaUNLa/blob/ac043b3eb9b53f88234ef3810f04e6081b142b08/ExportBase-21-06-2018.sql), cabe destacar que Spring boot te proporciona un tomcat8 embebido dentro de la aplicación, con lo que no hace falta configurar nada relacionado a esto.
+- 3: Para correr el proyecto, teniendo la herramienta que nos provee Pivotal, Spring Tools Suit deberías correr el proyecto desde el **Boot Dashboard** como se ve [aquí](http://github.com/Amaterazu7/farmaUNLa/blob/ac043b3eb9b53f88234ef3810f04e6081b142b08/Desmotracion.png), cabe destacar que Spring boot te proporciona un tomcat8 embebido dentro de la aplicación, con lo que no hace falta configurar nada relacionado a esto.
 
 ```
-En cado de que quieras saber más a certa de las escificaciones de Spring Boot, podes pegarle una mirada a las guías de Spring: https://spring.io/guides. Ellos te proporcinan un muy compresivo set de tutoriales de tipo step-by-step para entender mejor las carácteristicas de Spring.
+En cado de que quieras saber más a certa de las escificaciones de Spring Boot, podes pegarle una mirada a las guías de Spring:
+https://spring.io/guides. Ellos te proporcinan un muy compresivo set de tutoriales de tipo step-by-step para entender mejor las
+carácteristicas de Spring.
 ```
 
 - 4: Una vez levantado el server, (puede ser que la primera vez que levante se tome su tiempo porque Maven va a comparar y/o descargar lo necesario para levantar el proyecto), deberías ir a un explorador y entrar a "http://localhost:8080/" donde verás la interfaz con items en donde mostramos tablas con los puntos para el cliente de la cadena de farmacias.
@@ -59,14 +61,12 @@ La farmacia vende medicamentos y productos de perfumería.
 ```
 1. Detalle y totales de ventas para la cadena completa y por sucursal, entre fechas.
 
-2. Detalle y totales de ventas para la cadena completa y por sucursal, por obra social o 
-privados entre fechas.
+2. Detalle y totales de ventas para la cadena completa y por sucursal, por obra social o privados entre fechas.
 
-3. Detalle y totales de cobranza para la cadena completa y por sucursal, por medio de pago 
-y entre fechas.
+3. Detalle y totales de cobranza para la cadena completa y por sucursal, por medio de pago y entre fechas.
 
-4. Detalle y totales de ventas de productos, total de la cadena y por sucursal, entre fechas, 
-diferenciados entre farmacia y perfumería.
+4. Detalle y totales de ventas de productos, total de la cadena y por sucursal, entre fechas, diferenciados entre 
+farmacia y perfumería.
 
 5. Ranking de ventas de productos, total de la cadena y por sucursal, entre fechas, por monto.
 
