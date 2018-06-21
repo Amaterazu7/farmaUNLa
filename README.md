@@ -12,19 +12,17 @@ Las siguientes instrucciones te permitirán levantar el proyecto desarrollado en
 
 La aplicación cuenta con 6 paquetes:
 
-*com.bd2FarmaUNLa.farmaUNLa
+* **com.bd2FarmaUNLa.farmaUNLa**: donde se encuentra el main de la aplicación.
 
-* com.bd2FarmaUNLa.farmaUNLa: donde se encuentra el main de la aplicación.
+* **com.bd2FarmaUNLa.farmaUNLa.model**: donde se encuentran los modelos de la aplicación, las representaciones de las tablas de la base de datos en clases java.
 
-* com.bd2FarmaUNLa.farmaUNLa.model: donde se encuentran los modelos de la aplicación, las representaciones de las tablas de la base de datos en clases java.
+* **com.bd2FarmaUNLa.farmaUNLa.repository**: donde se encuentran los  "DAOs" o más bien las clases que extienden de la interfáz que nos probee spring "CrudRepository" y en donde se encuentran todas las consultas a la base de datos, ver "DetalleFacturaRepository"
 
-* com.bd2FarmaUNLa.farmaUNLa.repository: donde se encuentran los  "DAOs" o más bien las clases que extienden de la interfáz que nos probee spring "CrudRepository" y en donde se encuentran todas las consultas a la base de datos, ver "DetalleFacturaRepository"
+* **com.bd2FarmaUNLa.farmaUNLa.rest**: aquí se encuentran los Controllers de la aplicación encargados de exponer JSON para ser consumidos por la vista en Angular.
 
-* com.bd2FarmaUNLa.farmaUNLa.rest: aquí se encuentran los Controllers de la aplicación encargados de exponer JSON para ser consumidos por la vista en Angular.
+* **com.bd2FarmaUNLa.farmaUNLa.service**: aquí tenemos los servicios (interfaces) que vamos a exponer cuando las llamemos desde los controllers.
 
-* com.bd2FarmaUNLa.farmaUNLa.service: aquí tenemos los servicios (interfaces) que vamos a exponer cuando las llamemos desde los controllers.
-
-* com.bd2FarmaUNLa.farmaUNLa.service.imp: y por último aquí tenemos las implementaciones de los servicios a exponer.
+* **com.bd2FarmaUNLa.farmaUNLa.service.imp**: y por último aquí tenemos las implementaciones de los servicios a exponer.
 
 ### Prerequisitos
 
