@@ -4,11 +4,27 @@ Projecto de desarrollo para la cátedra Base de Datos II, de la Licenciatura en 
 
 ## Comencemos
 
-Las siguientes instrucciones te permitirán levantar el proyecto desarrollado en Spring Boot + MySQL.
+Las siguientes instrucciones te permitirán levantar el proyecto desarrollado en Spring Boot + MySQL. 
 
 ![-DER](http://github.com/Amaterazu7/farmaUNLa/blob/ac043b3eb9b53f88234ef3810f04e6081b142b08/DER.png)
 
 ![-Script con Set de Datos](https://github.com/Amaterazu7/farmaUNLa/blob/master/ExportBase-21-06-2018.sql)
+
+La aplicación cuenta con 6 paquetes:
+
+*com.bd2FarmaUNLa.farmaUNLa
+
+* com.bd2FarmaUNLa.farmaUNLa: donde se encuentra el main de la aplicación.
+
+* com.bd2FarmaUNLa.farmaUNLa.model: donde se encuentran los modelos de la aplicación, las representaciones de las tablas de la base de datos en clases java.
+
+* com.bd2FarmaUNLa.farmaUNLa.repository: donde se encuentran los  "DAOs" o más bien las clases que extienden de la interfáz que nos probee spring "CrudRepository" y en donde se encuentran todas las consultas a la base de datos, ver "DetalleFacturaRepository"
+
+* com.bd2FarmaUNLa.farmaUNLa.rest: aquí se encuentran los Controllers de la aplicación encargados de exponer JSON para ser consumidos por la vista en Angular.
+
+* com.bd2FarmaUNLa.farmaUNLa.service: aquí tenemos los servicios (interfaces) que vamos a exponer cuando las llamemos desde los controllers.
+
+* com.bd2FarmaUNLa.farmaUNLa.service.imp: y por último aquí tenemos las implementaciones de los servicios a exponer.
 
 ### Prerequisitos
 
@@ -24,14 +40,17 @@ Para poder levantar la API será necesario tener instalado un entorno de desarro
 
 - 1: Una vez instalado todo, deberías bajarte este proyecto a tu entorno local, ya sea descargandote como un .zip, o más bien por consola con un "git clone git@github.com:Amaterazu7/farmaUNLa.git".
 
-- 2: Importar el proyecto desde tu eclipse desde la carpeta descargada, y configurar el archivo "application.properties" acorde a tus credenciales de base de datos. (username & password)
+- 2: Importar el proyecto desde tu eclipse desde la carpeta descargada, y configurar el archivo "application.properties" acorde a tus credenciales de base de datos (username & password), en el path: 
 
+```
+src => main => resources => application.properties
+```
 - 3: Para correr el proyecto, teniendo la herramienta que nos provee Pivotal, Spring Tools Suit deberías correr el proyecto desde el **Boot Dashboard** como se ve [aquí](https://github.com/Amaterazu7/farmaUNLa/blob/master/Desmotracion.png), cabe destacar que Spring boot te proporciona un tomcat8 embebido dentro de la aplicación, con lo que no hace falta configurar nada relacionado a esto.
 
 ```
 En cado de que quieras saber más a certa de las escificaciones de Spring Boot, podes pegarle una mirada a las 
-guías de Spring:https://spring.io/guides. Ellos te proporcinan un muy compresivo set de tutoriales de tipo step-by-step 
-para entender mejor las carácteristicas de Spring.
+guías de Spring:https://spring.io/guides. Ellos te proporcinan un muy compresivo set de tutoriales de tipo
+step-by-step para entender mejor las carácteristicas de Spring.
 ```
 
 - 4: Una vez levantado el server, (puede ser que la primera vez que levante se tome su tiempo porque Maven va a comparar y/o descargar lo necesario para levantar el proyecto), deberías ir a un explorador y entrar a "http://localhost:8080/" donde verás la interfaz con items en donde mostramos tablas con los puntos para el cliente de la cadena de farmacias.
