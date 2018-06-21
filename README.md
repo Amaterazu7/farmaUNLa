@@ -30,7 +30,7 @@ Para poder levantar la API será necesario tener instalado un entorno de desarro
 
 * La IDE Eclipse (dentro de lo posible Oxygen o superior)
 
-* Tener como gestor de Base de datosMySQL
+* Tener MySQL como gestor de Base de datos
 
 * Descargarse el plugin [Spring Tools Suit desde el Eclipse Marketplace](https://marketplace.eclipse.org/content/spring-tools-aka-spring-ide-and-spring-tool-suite) (podes arrastrar el botón "install" desde la página a tu Eclips y se instalará solo).
 
