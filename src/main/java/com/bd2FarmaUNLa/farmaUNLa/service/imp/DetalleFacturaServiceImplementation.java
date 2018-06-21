@@ -89,6 +89,12 @@ public class DetalleFacturaServiceImplementation implements DetalleFacturaServic
 	}
 	
 	@Override
+	public List<DetalleFactura> totalCobranzaMPSucursal() {
+		return (List<DetalleFactura>) detalleFacturaRepository.totalCobranzaMPSucursal();
+	}
+	
+	
+	@Override
 	public List<DetalleFactura> totalVentaProductoCadena() {
 		return (List<DetalleFactura>) detalleFacturaRepository.totalVentaProductoCadena();
 	}

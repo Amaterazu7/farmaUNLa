@@ -33,6 +33,7 @@
                             	<th>Cantidad Total</th>
                             	<th>Venta Total</th>
                             	<th>Medio de Pago</th>
+                            	<th>Calle</th>
                        		</tr>
 						</thead>
 						<tbody>
@@ -40,6 +41,7 @@
 								<td><span ng-bind="df.cantidadTotal"></span></td>
 								<td><span ng-bind="df.ventaTotal"></span></td>
 								<td><span ng-bind="df.mediopago"></span></td>
+								<td><span ng-bind="df.calle"></span></td>
                         	</tr>
                       	</tbody>
                   	</table>

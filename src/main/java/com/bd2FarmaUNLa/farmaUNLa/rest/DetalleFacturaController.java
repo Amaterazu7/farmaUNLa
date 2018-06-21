@@ -213,7 +213,7 @@ public class DetalleFacturaController {
 	     
 	    @RequestMapping(value = "/detalleFactura/totalCobranzaMPSucursal/", method = RequestMethod.GET)
 	    public ResponseEntity<List<DetalleFactura>> totalCobranzaMPSucursal() {
-	        List<DetalleFactura> detallesFacturas = detalleFacturaService.totalCobranzaMPCadena();
+	        List<DetalleFactura> detallesFacturas = detalleFacturaService.totalCobranzaMPSucursal();
 	        if(detallesFacturas.isEmpty()){
 	            return new ResponseEntity<List<DetalleFactura>>(HttpStatus.NO_CONTENT);
 	        }

@@ -153,6 +153,7 @@ App.factory('DetalleFacturaService', ['$http', '$q', function($http, $q){
 									    consulta.cantidadTotal = consul[0];
 									    consulta.ventaTotal = consul[1];
 										consulta.mediopago = consul[2];
+										consulta.calle = consul[3];
 										
 										cmps.push(consulta);
 									}

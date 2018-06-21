@@ -34,6 +34,8 @@ public interface DetalleFacturaService {
 	
 	List<DetalleFactura> totalCobranzaMPCadena();
 	
+	List<DetalleFactura> totalCobranzaMPSucursal();
+	
 	List<DetalleFactura> totalVentaProductoCadena();
 	
 	List<DetalleFactura> totalVentaProductoSucursal();
